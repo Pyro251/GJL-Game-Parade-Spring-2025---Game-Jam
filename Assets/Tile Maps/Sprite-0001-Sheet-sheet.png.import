@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pvnv4u5kj165"
-path="res://.godot/imported/pixil-frame-0 (3).png-c79f3bea569b9f97a9d21eae2cd3c172.ctex"
+uid="uid://34ap7p1yr38t"
+path="res://.godot/imported/Sprite-0001-Sheet-sheet.png-3453b2b95627cb67a50c78f93365361a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tile Maps/pixil-frame-0 (3).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (3).png-c79f3bea569b9f97a9d21eae2cd3c172.ctex"]
+source_file="res://Assets/Tile Maps/Sprite-0001-Sheet-sheet.png"
+dest_files=["res://.godot/imported/Sprite-0001-Sheet-sheet.png-3453b2b95627cb67a50c78f93365361a.ctex"]
 
 [params]
 
