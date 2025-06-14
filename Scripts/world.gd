@@ -5,16 +5,18 @@ extends Node2D
 @onready var blackness_0: Node2D = $Blackness0
 
 func _ready() -> void:
-	pass
-	#blackness_0.hide()
-	#blackness_1.show()
-	#blackness_2.visible = true
+	$Blackness0.hide()
+	$Blackness1.show()
+	blackness_2.show()
 
 func _on_level_0_area_entered(area: Area2D) -> void:
-	blackness_0.visible = false
+	pass
+	#blackness_0.visible = false
 
 func _on_level_1_area_entered(area: Area2D) -> void:
-	blackness_1.visible = false
+	if area.is_in_group("Player"):
+		blackness_1.hide()
 
 func _on_level_2_area_entered(area: Area2D) -> void:
-	blackness_2.visible = false
+	pass
+	#blackness_2.visible = false
