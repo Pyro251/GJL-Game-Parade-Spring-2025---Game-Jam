@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim_timer: Timer = $AnimTimer
 
 const MOVE_SPEED = 2.0
 
@@ -9,7 +10,7 @@ var target_pos
 var player_in_area = false
 
 func _ready() -> void:
-	animated_sprite_2d.play("default")
+	anim_timer.start()
 
 func _physics_process(delta: float) -> void:
 	player_pos = Global.player.position
@@ -27,3 +28,7 @@ func _on_player_detect_area_entered(area: Area2D) -> void:
 func _on_player_detect_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Player"):
 		player_in_area = false
+
+
+func _on_anim_timer_timeout() -> void:
+	animated_sprite_2d.play("default")

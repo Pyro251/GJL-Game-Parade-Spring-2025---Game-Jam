@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://do00qdtob1ce4"]
+
+[ext_resource type="Texture2D" uid="uid://b4pt7rvarcutv" path="res://Assets/Enemies/Game Jam Saurtufly Sprite.png" id="1_e5ftt"]
+[ext_resource type="Script" uid="uid://dp7bj8dkggx1w" path="res://Scripts/Enemies/MediumEnemy1/medium_enemy_1.gd" id="1_lcj72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcj72"]
+atlas = ExtResource("1_e5ftt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0qnh"]
+atlas = ExtResource("1_e5ftt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1apc"]
+atlas = ExtResource("1_e5ftt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ciuu4"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_lcj72")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_x0qnh")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_f1apc")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_x0qnh")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0qnh"]
+radius = 22.0
+height = 82.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1apc"]
+radius = 396.032
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcj72"]
+
+[node name="MediumEnemy1" type="CharacterBody2D"]
+script = ExtResource("1_lcj72")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_ciuu4")
+animation = &"flying"
+frame_progress = 0.475547
+
+[node name="HitBox" type="Area2D" parent="." groups=["Medium Enemy 1"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x0qnh")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_f1apc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Medium Enemy 1"]]
+shape = SubResource("CircleShape2D_lcj72")
+disabled = true
+
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
+[connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]

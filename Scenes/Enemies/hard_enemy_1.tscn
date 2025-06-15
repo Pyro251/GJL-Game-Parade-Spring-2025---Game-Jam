@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://rbnkdojedvjo"]
+
+[ext_resource type="Script" uid="uid://hup18q77v83d" path="res://Scripts/Enemies/HardEnemy1/hard_enemy_1.gd" id="1_ymhq5"]
+[ext_resource type="Texture2D" uid="uid://prqvypha7piw" path="res://Assets/Enemies/Game Jam Cyclozor.png" id="2_ags7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts4pt"]
+atlas = ExtResource("2_ags7f")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot5wy"]
+atlas = ExtResource("2_ags7f")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq314"]
+atlas = ExtResource("2_ags7f")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kbsa"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ts4pt")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ot5wy")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_hq314")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ot5wy")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ts4pt")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqa7c"]
+radius = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wb0p7"]
+radius = 351.091
+
+[node name="HardEnemy1" type="CharacterBody2D" groups=["Hard Enemy 1"]]
+script = ExtResource("1_ymhq5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_3kbsa")
+frame_progress = 0.432424
+
+[node name="AnimTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="HitBox" type="Area2D" parent="." groups=["Hard Enemy 1"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_tqa7c")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_wb0p7")
+
+[connection signal="timeout" from="AnimTimer" to="." method="_on_anim_timer_timeout"]
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
+[connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]

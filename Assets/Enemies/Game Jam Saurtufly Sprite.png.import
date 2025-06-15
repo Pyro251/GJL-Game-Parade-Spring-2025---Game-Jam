@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://75343q31pqxx"
-path="res://.godot/imported/Game Jam Shop Sprite.png-92404aecb53cd66745b23f00d2c1d338.ctex"
+uid="uid://b4pt7rvarcutv"
+path="res://.godot/imported/Game Jam Saurtufly Sprite.png-e3c14592d7b9db96d9953eabe60119dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Game Jam Shop Sprite.png"
-dest_files=["res://.godot/imported/Game Jam Shop Sprite.png-92404aecb53cd66745b23f00d2c1d338.ctex"]
+source_file="res://Assets/Enemies/Game Jam Saurtufly Sprite.png"
+dest_files=["res://.godot/imported/Game Jam Saurtufly Sprite.png-e3c14592d7b9db96d9953eabe60119dd.ctex"]
 
 [params]
 

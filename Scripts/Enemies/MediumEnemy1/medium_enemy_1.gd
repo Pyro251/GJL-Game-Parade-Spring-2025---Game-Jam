@@ -9,7 +9,7 @@ var target_pos
 var player_in_area = false
 
 func _ready() -> void:
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("flying")
 
 func _physics_process(delta: float) -> void:
 	player_pos = Global.player.position

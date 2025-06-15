@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://vuf4tli3mk5y"]
+
+[ext_resource type="Script" uid="uid://q6qhsg65vmfn" path="res://Scripts/Enemies/Hard Enemy 2/hard_enemy_2.gd" id="1_salm0"]
+[ext_resource type="Texture2D" uid="uid://yjs5nx6y5xo6" path="res://Assets/Enemies/Game Jam Antlure Sprite.png" id="2_w2hrr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3et7b"]
+atlas = ExtResource("2_w2hrr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q73af"]
+atlas = ExtResource("2_w2hrr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axsca"]
+atlas = ExtResource("2_w2hrr")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biy2x"]
+atlas = ExtResource("2_w2hrr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxwpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3et7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q73af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axsca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_biy2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_en37b"]
+radius = 251.287
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gcolk"]
+radius = 13.0
+
+[node name="HardEnemy2" type="CharacterBody2D" groups=["Hard Enemy 2"]]
+script = ExtResource("1_salm0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_vxwpo")
+frame_progress = 0.285557
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_en37b")
+
+[node name="HitBox" type="Area2D" parent="." groups=["Hard Enemy 2"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(21, 0)
+shape = SubResource("CircleShape2D_gcolk")
+
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
+[connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]

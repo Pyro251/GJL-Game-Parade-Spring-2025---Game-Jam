@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://c175bxhbp44pf"]
+
+[ext_resource type="Script" uid="uid://c67esguxi204b" path="res://Scripts/Enemies/MediumEnemy2/medium_enemy_2.gd" id="1_gyh5e"]
+[ext_resource type="Texture2D" uid="uid://culd2ra5y7u5q" path="res://Assets/Enemies/Game Jam Spuck Sprite.png" id="2_ong4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3axhm"]
+atlas = ExtResource("2_ong4w")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj6vr"]
+atlas = ExtResource("2_ong4w")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6m6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3axhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj6vr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyh5e"]
+radius = 39.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ong4w"]
+radius = 209.06
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3axhm"]
+radius = 29.0689
+
+[node name="MediumEnemy2" type="CharacterBody2D" groups=["Medium Enemy 2"]]
+script = ExtResource("1_gyh5e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_k6m6h")
+frame = 1
+frame_progress = 0.975183
+
+[node name="HitBox" type="Area2D" parent="." groups=["Medium Enemy 2"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_gyh5e")
+
+[node name="PlayerDetect" type="Area2D" parent="." groups=["Medium Enemy 2"]]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_ong4w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3axhm")
+
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
+[connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]

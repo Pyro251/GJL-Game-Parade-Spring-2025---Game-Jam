@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://det8b61sy32ts"]
+
+[ext_resource type="Script" uid="uid://2irmpoljdpos" path="res://Scripts/Player/staff.gd" id="1_cro23"]
+[ext_resource type="Texture2D" uid="uid://cpvtfggm8bhcs" path="res://Assets/Player/Staff/Game Jam Staff Sprite.png" id="2_387oy"]
+
+[node name="Staff" type="CharacterBody2D"]
+script = ExtResource("1_cro23")
+
+[node name="GameJamStaffSprite" type="Sprite2D" parent="."]
+rotation = 0.785398
+texture = ExtResource("2_387oy")
