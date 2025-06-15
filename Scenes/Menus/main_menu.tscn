@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://mxx6nnxs45b4"]
+
+[ext_resource type="Script" uid="uid://fy8t73b6iud2" path="res://Scripts/Menus/main_menu.gd" id="1_38aua"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_38aua")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 96.0
+offset_right = 139.0
+offset_bottom = 127.0
+text = "New Game"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 139.0
+offset_right = 118.0
+offset_bottom = 170.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 182.0
+offset_right = 93.0
+offset_bottom = 213.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

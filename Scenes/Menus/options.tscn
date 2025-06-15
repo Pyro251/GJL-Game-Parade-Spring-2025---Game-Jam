@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://chquifyx6vsl0"]
+
+[ext_resource type="Script" uid="uid://xq2jkuh8mfw0" path="res://Scripts/Menus/options.gd" id="1_xdyw6"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xdyw6")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[node name="options" type="Label" parent="."]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 21.0
+offset_right = 585.0
+offset_bottom = 44.0
+text = "Options"
+
+[node name="resolution" type="Label" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 81.0
+offset_right = 492.0
+offset_bottom = 104.0
+text = "resolution:"
+
+[node name="ResolutionOptions" type="OptionButton" parent="resolution"]
+layout_mode = 0
+offset_left = 198.0
+offset_right = 296.0
+offset_bottom = 20.0
+selected = 1
+item_count = 4
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560x1440"
+popup/item_2/id = 2
+popup/item_3/text = "3840x2160"
+popup/item_3/id = 3
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="resolution/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]

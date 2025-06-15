@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Game Parade Spring 2025 Game Jam"
-run/main_scene="uid://bapjoa1ncbi0m"
+run/main_scene="uid://mxx6nnxs45b4"
 config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+Global="*res://Scripts/Globals/Global.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 
@@ -47,6 +56,7 @@ shoot={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Level"
+2d_physics/layer_4="Player/Enemy Detection for Movement"
 
 [rendering]
 

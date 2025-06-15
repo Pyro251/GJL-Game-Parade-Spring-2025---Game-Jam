@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh4ubs23wgi1u"]
+
+[ext_resource type="Texture2D" uid="uid://cfp051r1ipk70" path="res://Assets/Enemies/Game Jam Krow Sprite.png" id="1_7l3fb"]
+[ext_resource type="Script" uid="uid://dvlw7eh3ho6t4" path="res://Scripts/Enemies/EasyEnemy1/easy_enemy_1.gd" id="1_hciy0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brf2k"]
+atlas = ExtResource("1_7l3fb")
+region = Rect2(0, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxlfi"]
+atlas = ExtResource("1_7l3fb")
+region = Rect2(52, 0, 52, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofmus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brf2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxlfi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmdwj"]
+radius = 7.99999
+height = 52.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hciy0"]
+radius = 12.0
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ko34w"]
+radius = 173.0
+height = 538.0
+
+[node name="EasyEnemy1" type="CharacterBody2D"]
+script = ExtResource("1_hciy0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ofmus")
+frame_progress = 0.146808
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dmdwj")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hciy0")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ko34w")
+
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
+[connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]

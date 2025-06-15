@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bapjoa1ncbi0m"]
+[gd_scene load_steps=8 format=3 uid="uid://bapjoa1ncbi0m"]
 
-[ext_resource type="Script" uid="uid://dka2f3vh4n020" path="res://Scripts/world.gd" id="1_5a7ea"]
-[ext_resource type="PackedScene" uid="uid://b67xmooa7eu6o" path="res://Scenes/player.tscn" id="1_a02cp"]
+[ext_resource type="Script" uid="uid://dka2f3vh4n020" path="res://Scripts/Levels/world.gd" id="1_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://b67xmooa7eu6o" path="res://Scenes/Players/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://34ap7p1yr38t" path="res://Assets/Tile Maps/Sprite-0001-Sheet-sheet.png" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://bh4ubs23wgi1u" path="res://Scenes/Enemies/easy_enemy_1.tscn" id="4_vadfg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5a7ea"]
 texture = ExtResource("2_go701")
@@ -270,9 +271,10 @@ collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level0"]
 visible = false
-polygon = PackedVector2Array(-101, -36, 572, -35, 573, -265, 1165, -264, 1164, 211, 1583, 215, 1583, 447, 1568, 461, 624, 459, 626, 46, -107, 43)
+polygon = PackedVector2Array(-105, -47, 572, -43, 573, -265, 1165, -264, 1164, 211, 1583, 215, 1583, 447, 1568, 461, 624, 459, 626, 46, -107, 43)
 
 [node name="Level1" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -285,9 +287,11 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level2"]
-visible = false
 position = Vector2(766.5, 930.5)
 shape = SubResource("RectangleShape2D_8j60k")
+
+[node name="EasyEnemy1" parent="." instance=ExtResource("4_vadfg")]
+position = Vector2(979, -26)
 
 [connection signal="area_entered" from="Level0" to="." method="_on_level_0_area_entered"]
 [connection signal="area_entered" from="Level1" to="." method="_on_level_1_area_entered"]
