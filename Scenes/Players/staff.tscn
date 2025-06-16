@@ -11,4 +11,4 @@ rotation = 0.785398
 texture = ExtResource("2_387oy")
 
 [node name="FiringPos" type="Node2D" parent="."]
-position = Vector2(22, 0)
+position = Vector2(17, -2)

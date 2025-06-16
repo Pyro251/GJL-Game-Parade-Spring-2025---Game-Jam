@@ -72,5 +72,6 @@ shape = SubResource("CircleShape2D_f1apc")
 shape = SubResource("CircleShape2D_lcj72")
 disabled = true
 
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
 [connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]

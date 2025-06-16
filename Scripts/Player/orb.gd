@@ -1,14 +1,16 @@
-extends RigidBody2D
+extends Area2D
 
-#var pos: Vector2
-#var rota: float
-#var dir: float
-#var speed = 1000
-#
-#func _ready() -> void:
-	#global_position = pos
-	#global_rotation = rota
-#
-#func _physics_process(delta: float) -> void:
-	#velocity = Vector2(speed, 0).rotated(dir)
-	#move_and_slide()
+var velocity = Vector2()
+
+func _process(delta):
+	position += velocity * delta
+	
+	if velocity.length() > 0:
+		rotation = velocity.angle()
+	
+
+
+func _on_orb_life_timer_timeout() -> void:
+	print("THE ORB IS DYING!!!!!!!!")
+	queue_free()
+	

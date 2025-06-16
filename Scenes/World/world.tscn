@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dka2f3vh4n020" path="res://Scripts/Levels/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://b67xmooa7eu6o" path="res://Scenes/Players/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://34ap7p1yr38t" path="res://Assets/Tile Maps/Sprite-0001-Sheet-sheet.png" id="2_go701"]
-[ext_resource type="PackedScene" uid="uid://vuf4tli3mk5y" path="res://Scenes/Enemies/hard_enemy_2.tscn" id="4_vadfg"]
+[ext_resource type="PackedScene" uid="uid://bh4ubs23wgi1u" path="res://Scenes/Enemies/easy_enemy_1.tscn" id="4_vadfg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vadfg"]
 
@@ -338,8 +338,8 @@ visible = false
 position = Vector2(766.5, 930.5)
 shape = SubResource("RectangleShape2D_8j60k")
 
-[node name="HardEnemy2" parent="." instance=ExtResource("4_vadfg")]
-position = Vector2(935, -17)
+[node name="EasyEnemy1" parent="." instance=ExtResource("4_vadfg")]
+position = Vector2(851, -13)
 
 [connection signal="area_entered" from="Level0" to="." method="_on_level_0_area_entered"]
 [connection signal="area_entered" from="Level1" to="." method="_on_level_1_area_entered"]

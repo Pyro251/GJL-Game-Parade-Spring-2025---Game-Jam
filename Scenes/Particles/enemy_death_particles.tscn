@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://wibdnes4j66e"]
+
+[ext_resource type="Script" uid="uid://dqpcjdxixg020" path="res://Scripts/Particles/enemy_death_particles.gd" id="1_rmo18"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_13m8u"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 31.2
+initial_velocity_max = 71.2
+gravity = Vector3(0, 0, 0)
+
+[node name="EnemyDeathParticles" type="GPUParticles2D"]
+amount = 1468
+lifetime = 0.8
+explosiveness = 0.3
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_13m8u")
+script = ExtResource("1_rmo18")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

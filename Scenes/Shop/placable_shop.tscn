@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1jfd2dbcyi71"]
 
-[ext_resource type="Texture2D" uid="uid://75343q31pqxx" path="res://Assets/shop/Game Jam Shop Sprite.png" id="1_6ejr8"]
+[ext_resource type="Texture2D" uid="uid://75343q31pqxx" path="res://Assets/shop/Shop/Game Jam Shop Sprite.png" id="1_6ejr8"]
 [ext_resource type="Script" uid="uid://d0vuokynf4unp" path="res://Scripts/Menus/placable_shop.gd" id="1_wrx7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo0t4"]
@@ -20,8 +20,8 @@ position = Vector2(2, 1.5)
 shape = SubResource("RectangleShape2D_oo0t4")
 
 [node name="PlayerDetect" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
 shape = SubResource("CircleShape2D_rrexh")

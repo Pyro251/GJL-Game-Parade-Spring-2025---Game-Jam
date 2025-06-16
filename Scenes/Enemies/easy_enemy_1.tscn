@@ -57,5 +57,6 @@ collision_mask = 8
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ko34w")
 
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
 [connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbyaff7de4x4x"]
+
+[ext_resource type="Script" uid="uid://1ikmbbwdchnk" path="res://Scripts/Coin/coin.gd" id="1_peex2"]
+[ext_resource type="Texture2D" uid="uid://c8x61lnjfe5hw" path="res://Assets/shop/Coin/Game Jam Coin Floor Sprite.png" id="2_ld3c2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbafa"]
+atlas = ExtResource("2_ld3c2")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywtkp"]
+atlas = ExtResource("2_ld3c2")
+region = Rect2(11, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqkpo"]
+atlas = ExtResource("2_ld3c2")
+region = Rect2(22, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q106a"]
+atlas = ExtResource("2_ld3c2")
+region = Rect2(33, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06grd"]
+atlas = ExtResource("2_ld3c2")
+region = Rect2(44, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1cn3"]
+atlas = ExtResource("2_ld3c2")
+region = Rect2(55, 0, 11, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yn8ox"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bbafa")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ywtkp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tqkpo")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_q106a")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_06grd")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_p1cn3")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qms77"]
+radius = 25.0
+height = 56.0
+
+[node name="Coin" type="CharacterBody2D"]
+script = ExtResource("1_peex2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yn8ox")
+animation = &"spin"
+frame_progress = 0.852691
+
+[node name="PlayerDetect" type="Area2D" parent="." groups=["Coin"]]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CapsuleShape2D_qms77")
+
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
