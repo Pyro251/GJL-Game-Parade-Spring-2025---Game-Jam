@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://vuf4tli3mk5y"]
 
 [ext_resource type="Script" uid="uid://q6qhsg65vmfn" path="res://Scripts/Enemies/Hard Enemy 2/hard_enemy_2.gd" id="1_salm0"]
-[ext_resource type="Texture2D" uid="uid://yjs5nx6y5xo6" path="res://Assets/Enemies/Game Jam Antlure Sprite.png" id="2_w2hrr"]
+[ext_resource type="Texture2D" uid="uid://bqli0pgt037yo" path="res://Assets/Enemies/Game Jam Antlure Sprite.png" id="2_w2hrr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3et7b"]
 atlas = ExtResource("2_w2hrr")

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-const MOVE_SPEED = 80.0
+const MOVE_SPEED = 120.0
 
 var player_in_area = false
 var health = 5
