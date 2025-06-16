@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqli0pgt037yo"
-path="res://.godot/imported/Game Jam Antlure Sprite.png-db863b98ad911cb9a34f881b38bd0422.ctex"
+uid="uid://cxhsbdleqr2oa"
+path="res://.godot/imported/Game Jam Dark Bullet Sprite.png-fb4788012b12a5a4d0f5c47fdc229d15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Game Jam Antlure Sprite.png"
-dest_files=["res://.godot/imported/Game Jam Antlure Sprite.png-db863b98ad911cb9a34f881b38bd0422.ctex"]
+source_file="res://Assets/Enemies/Game Jam Dark Bullet Sprite.png"
+dest_files=["res://.godot/imported/Game Jam Dark Bullet Sprite.png-fb4788012b12a5a4d0f5c47fdc229d15.ctex"]
 
 [params]
 

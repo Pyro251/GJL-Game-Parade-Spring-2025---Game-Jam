@@ -22,7 +22,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.6
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyh5e"]
@@ -40,8 +40,7 @@ script = ExtResource("1_gyh5e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_k6m6h")
-frame = 1
-frame_progress = 0.975183
+frame_progress = 0.701107
 
 [node name="HitBox" type="Area2D" parent="." groups=["Medium Enemy 2"]]
 collision_layer = 2
