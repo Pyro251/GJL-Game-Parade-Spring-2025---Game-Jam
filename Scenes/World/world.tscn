@@ -547,6 +547,7 @@ metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_a02cp")]
 rotation = -0.00255597
+speed = 400
 
 [node name="Blackness0" type="Node2D" parent="."]
 visible = false

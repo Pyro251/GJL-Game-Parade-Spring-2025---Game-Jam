@@ -61,5 +61,5 @@ func _on_debug_check_timeout() -> void:
 	if Global.hide_shop == false:
 		print("shop shown")
 
-func pick_shop_items():
+
 	
