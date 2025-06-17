@@ -17,7 +17,7 @@ gravity = Vector3(0, 0, 0)
 scale_max = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
-radius = 17.0
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
 radius = 46.0

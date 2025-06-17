@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bapjoa1ncbi0m"]
+[gd_scene load_steps=23 format=3 uid="uid://bapjoa1ncbi0m"]
 
 [ext_resource type="Script" uid="uid://dka2f3vh4n020" path="res://Scripts/Levels/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://b67xmooa7eu6o" path="res://Scenes/Players/player.tscn" id="1_a02cp"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://75343q31pqxx" path="res://Assets/shop/Shop/Game Jam Shop Sprite.png" id="5_l1hd3"]
 [ext_resource type="PackedScene" uid="uid://dkmpymvaeylwv" path="res://Scenes/Enemies/easy_enemy_2.tscn" id="6_adcqc"]
 [ext_resource type="Texture2D" uid="uid://di2u8832tbwei" path="res://Assets/Tile Maps/W A L L S.png" id="7_7staa"]
+[ext_resource type="PackedScene" uid="uid://do00qdtob1ce4" path="res://Scenes/Enemies/medium_enemy_1.tscn" id="8_y0d6x"]
+[ext_resource type="PackedScene" uid="uid://c175bxhbp44pf" path="res://Scenes/Enemies/medium_enemy_2.tscn" id="9_ugf0j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vadfg"]
 
@@ -534,6 +536,111 @@ position = Vector2(973, 323)
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_y0d6x")
 metadata/_edit_group_ = true
+
+[node name="EasyEnemy9" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2110, 224)
+
+[node name="EasyEnemy10" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2121, 497)
+
+[node name="EasyEnemy11" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1977, 608)
+
+[node name="EasyEnemy12" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2055, 93)
+
+[node name="EasyEnemy13" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(2076, 327)
+
+[node name="EasyEnemy14" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2141, 891)
+
+[node name="EasyEnemy15" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1838, 877)
+
+[node name="EasyEnemy16" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(389, 920)
+
+[node name="EasyEnemy17" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(462, 935)
+
+[node name="EasyEnemy18" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(615, 917)
+
+[node name="EasyEnemy19" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1197, 932)
+
+[node name="EasyEnemy20" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(907, 928)
+
+[node name="EasyEnemy21" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-240, 795)
+
+[node name="EasyEnemy22" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-113, 938)
+
+[node name="EasyEnemy23" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-175, 1079)
+
+[node name="MediumEnemy1" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(-260, 957)
+
+[node name="EasyEnemy24" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1014, 1138)
+
+[node name="EasyEnemy25" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1017, 1024)
+
+[node name="EasyEnemy26" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1101, 1241)
+
+[node name="EasyEnemy27" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1089, 966)
+
+[node name="EasyEnemy28" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1112, 438)
+
+[node name="EasyEnemy29" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1006, 407)
+
+[node name="EasyEnemy30" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1106, 302)
+
+[node name="EasyEnemy31" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1011, 496)
+
+[node name="EasyEnemy32" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1228, 497)
+
+[node name="MediumEnemy2" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(-1152, 1106)
+
+[node name="MediumEnemy3" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(-1120, 1675)
+
+[node name="EasyEnemy33" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(-1220, 1654)
+
+[node name="MediumEnemy4" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(-1774, 532)
+
+[node name="EasyEnemy34" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1591, 690)
+
+[node name="EasyEnemy35" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-1526, 687)
+
+[node name="EasyEnemy36" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(-1956, 624)
+
+[node name="EasyEnemy37" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(-2126, 684)
+
+[node name="EasyEnemy38" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-2094, 814)
+
+[node name="EasyEnemy39" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(-2155, 431)
 
 [connection signal="area_entered" from="Level0" to="." method="_on_level_0_area_entered"]
 [connection signal="area_entered" from="Level1" to="." method="_on_level_1_area_entered"]
