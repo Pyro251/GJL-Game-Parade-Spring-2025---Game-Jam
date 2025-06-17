@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b67xmooa7eu6o"]
+[gd_scene load_steps=13 format=3 uid="uid://b67xmooa7eu6o"]
 
 [ext_resource type="Script" uid="uid://dc7eawnw7t7ad" path="res://Scripts/Player/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://det8b61sy32ts" path="res://Scenes/Players/staff.tscn" id="2_8qn36"]
 [ext_resource type="Texture2D" uid="uid://c6gs3rv87kf38" path="res://Assets/shop/Coin/Game Jam Coin UI Sprite.png" id="2_ppdxs"]
 [ext_resource type="Texture2D" uid="uid://cbqngm3mbje51" path="res://Assets/Player/Hat/Game Jam Wizard Hat Sprite.png" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://d3bx877vipe5s" path="res://Assets/shop/Shop/Game Jam Bugsy's Shop.png" id="5_22fdy"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8qn36"]
 particle_flag_disable_z = true
@@ -31,7 +32,7 @@ radius = 68.3593
 radius = 22.0227
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_24nbk"]
-radius = 98.0
+radius = 28.6356
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_v0iea")
@@ -42,6 +43,50 @@ amount = 90
 lifetime = 0.15
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_8qn36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cvnsp")
+
+[node name="GameJamWizardHatSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_6t5aa")
+
+[node name="Staff" parent="GameJamWizardHatSprite" instance=ExtResource("2_8qn36")]
+position = Vector2(4, 23)
+
+[node name="LevelCollision" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollision" groups=["Player"]]
+shape = SubResource("CircleShape2D_6t5aa")
+
+[node name="EnemyAreaDetect" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAreaDetect"]
+shape = SubResource("CircleShape2D_8qn36")
+
+[node name="ShopAreaDetect" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopAreaDetect"]
+shape = SubResource("CircleShape2D_ppdxs")
+
+[node name="HitBox" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_22fdy")
+
+[node name="CoinDetect" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinDetect"]
+shape = SubResource("CircleShape2D_24nbk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 2
@@ -70,49 +115,28 @@ offset_right = -290.0
 offset_bottom = -143.0
 text = "0"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_cvnsp")
+[node name="ShopUI" type="Node2D" parent="Camera2D"]
+visible = false
+z_index = 4
 
-[node name="GameJamWizardHatSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_6t5aa")
+[node name="GameJamBugsy\'sShop" type="Sprite2D" parent="Camera2D/ShopUI"]
+position = Vector2(5.96046e-08, -5.96046e-08)
+scale = Vector2(2.17, 2.17)
+texture = ExtResource("5_22fdy")
 
-[node name="Staff" parent="GameJamWizardHatSprite" instance=ExtResource("2_8qn36")]
-position = Vector2(4, 23)
+[node name="ColorRect" type="ColorRect" parent="Camera2D/ShopUI"]
+offset_left = 269.0
+offset_top = -217.0
+offset_right = 385.0
+offset_bottom = 218.0
+color = Color(0, 0, 0, 1)
 
-[node name="LevelCollision" type="Area2D" parent="." groups=["Player"]]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollision" groups=["Player"]]
-shape = SubResource("CircleShape2D_6t5aa")
-
-[node name="EnemyAreaDetect" type="Area2D" parent="." groups=["Player"]]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAreaDetect"]
-shape = SubResource("CircleShape2D_8qn36")
-
-[node name="ShopAreaDetect" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopAreaDetect"]
-shape = SubResource("CircleShape2D_ppdxs")
-
-[node name="HitBox" type="Area2D" parent="." groups=["Player"]]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CircleShape2D_22fdy")
-
-[node name="CoinDetect" type="Area2D" parent="." groups=["Player"]]
-collision_layer = 32
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinDetect"]
-shape = SubResource("CircleShape2D_24nbk")
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/ShopUI"]
+offset_left = -387.0
+offset_top = -217.0
+offset_right = -271.0
+offset_bottom = 218.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="CoinDetect" to="." method="_on_coin_detect_area_entered"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var hat_sprite: Sprite2D = $GameJamWizardHatSprite
 @onready var health_bar: ProgressBar = $Camera2D/HealthBar
 @onready var coins_label: Label = $Camera2D/Coins
+@onready var shop_ui: Node2D = $Camera2D/ShopUI
 
 @export var speed = 400
 
@@ -24,6 +25,13 @@ func _physics_process(delta):
 	health_bar.value = Global.player_health
 	
 	coins_label.text = str(coins)
+	
+	if Global.hide_shop == true:
+		shop_ui.hide()
+		print("shop hid")
+	if Global.hide_shop == false:
+		shop_ui.show()
+		print("shop shown")
 	
 	move_and_slide()
 	

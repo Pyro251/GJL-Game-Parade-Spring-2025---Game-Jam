@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b67xmooa7eu6o" path="res://Scenes/Players/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://34ap7p1yr38t" path="res://Assets/Tile Maps/Sprite-0001-Sheet-sheet.png" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://bh4ubs23wgi1u" path="res://Scenes/Enemies/easy_enemy_1.tscn" id="5_adcqc"]
-[ext_resource type="Texture2D" uid="uid://75343q31pqxx" path="res://Assets/shop/Game Jam Shop Sprite.png" id="5_l1hd3"]
+[ext_resource type="Texture2D" uid="uid://75343q31pqxx" path="res://Assets/shop/Shop/Game Jam Shop Sprite.png" id="5_l1hd3"]
 [ext_resource type="PackedScene" uid="uid://dkmpymvaeylwv" path="res://Scenes/Enemies/easy_enemy_2.tscn" id="6_adcqc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vadfg"]
@@ -221,7 +221,7 @@ size = Vector2(1209, 85)
 script = ExtResource("1_5a7ea")
 metadata/_edit_horizontal_guides_ = [-1823.0]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Floor" type="TileMap" parent="."]
 position = Vector2(-32, -2)
 tile_set = SubResource("TileSet_8j60k")
 format = 2
