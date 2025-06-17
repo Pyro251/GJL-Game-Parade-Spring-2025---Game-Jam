@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ssdahr40l1b"
-path="res://.godot/imported/Game Jam Common Health Card.png-7a694f7ba919d514d10141f3eaf163fa.ctex"
+uid="uid://chtdcq5dpjsou"
+path="res://.godot/imported/Game Jam Rare Damage Card.png-f90dd1e68069104f55b27e3a45a41dbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Shop/Game Jam Common Health Card.png"
-dest_files=["res://.godot/imported/Game Jam Common Health Card.png-7a694f7ba919d514d10141f3eaf163fa.ctex"]
+source_file="res://Assets/shop/Cards/Attack/Game Jam Rare Damage Card.png"
+dest_files=["res://.godot/imported/Game Jam Rare Damage Card.png-f90dd1e68069104f55b27e3a45a41dbe.ctex"]
 
 [params]
 

@@ -7,7 +7,7 @@
 size = Vector2(74, 58)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rrexh"]
-radius = 119.0
+radius = 173.012
 
 [node name="Placable Shop" type="CharacterBody2D"]
 script = ExtResource("1_wrx7w")
@@ -20,11 +20,16 @@ position = Vector2(2, 1.5)
 shape = SubResource("RectangleShape2D_oo0t4")
 
 [node name="PlayerDetect" type="Area2D" parent="."]
+z_index = 9
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
 shape = SubResource("CircleShape2D_rrexh")
 
+[node name="DebugTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
 [connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]
+[connection signal="timeout" from="DebugTimer" to="." method="_on_debug_timer_timeout"]

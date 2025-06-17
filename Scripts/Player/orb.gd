@@ -11,6 +11,5 @@ func _process(delta):
 
 
 func _on_orb_life_timer_timeout() -> void:
-	print("THE ORB IS DYING!!!!!!!!")
 	queue_free()
 	

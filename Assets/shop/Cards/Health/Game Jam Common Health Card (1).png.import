@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1t1r76u8ribx"
-path="res://.godot/imported/Game Jam Common Health Card.png-c838fcd87697e162a156e5982e81da5f.ctex"
+uid="uid://e4j8girgnn2b"
+path="res://.godot/imported/Game Jam Common Health Card (1).png-ea54e089479c04ae3e646b983c40873f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tile Maps/Game Jam Common Health Card.png"
-dest_files=["res://.godot/imported/Game Jam Common Health Card.png-c838fcd87697e162a156e5982e81da5f.ctex"]
+source_file="res://Assets/shop/Cards/Health/Game Jam Common Health Card (1).png"
+dest_files=["res://.godot/imported/Game Jam Common Health Card (1).png-ea54e089479c04ae3e646b983c40873f.ctex"]
 
 [params]
 

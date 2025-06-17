@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var speed = 400
 
 var coins = 0
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	Global.player = $"."
@@ -28,14 +29,10 @@ func _physics_process(delta):
 	
 	if Global.hide_shop == true:
 		shop_ui.hide()
-		print("shop hid")
 	if Global.hide_shop == false:
 		shop_ui.show()
-		print("shop shown")
 	
 	move_and_slide()
-	
-
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Easy Enemy 1"):
@@ -56,3 +53,13 @@ func _on_coin_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coin"):
 		coins += 1
 		print("you have ", coins, " coins")
+
+
+func _on_debug_check_timeout() -> void:
+	if Global.hide_shop == true:
+		print("shop hid")
+	if Global.hide_shop == false:
+		print("shop shown")
+
+func pick_shop_items():
+	
