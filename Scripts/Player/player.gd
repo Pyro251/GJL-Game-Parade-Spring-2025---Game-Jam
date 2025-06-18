@@ -62,4 +62,4 @@ func _on_debug_check_timeout() -> void:
 		print("shop shown")
 
 func pick_shop_items():
-	
+	var pick_health_card

@@ -1,0 +1,262 @@
+[gd_scene load_steps=22 format=3 uid="uid://b67xmooa7eu6o"]
+
+[ext_resource type="Script" uid="uid://dc7eawnw7t7ad" path="res://Scripts/Player/player.gd" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://det8b61sy32ts" path="res://Scenes/Players/staff.tscn" id="2_8qn36"]
+[ext_resource type="Texture2D" uid="uid://c6gs3rv87kf38" path="res://Assets/shop/Coin/Game Jam Coin UI Sprite.png" id="2_ppdxs"]
+[ext_resource type="Texture2D" uid="uid://cbqngm3mbje51" path="res://Assets/Player/Hat/Game Jam Wizard Hat Sprite.png" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://d3bx877vipe5s" path="res://Assets/shop/Shop/Game Jam Bugsy's Shop.png" id="5_22fdy"]
+[ext_resource type="Texture2D" uid="uid://e4j8girgnn2b" path="res://Assets/shop/Cards/Health/Game Jam Common Health Card (1).png" id="6_oxhme"]
+[ext_resource type="Texture2D" uid="uid://b07v2mr1pfmdm" path="res://Assets/shop/Cards/Health/Game Jam Rare Health Card (1).png" id="7_gfkdj"]
+[ext_resource type="Texture2D" uid="uid://ds4vvq2hwq6ej" path="res://Assets/shop/Cards/Health/Game Jam Extraordinary Health Card.png" id="8_xxqkx"]
+[ext_resource type="Texture2D" uid="uid://dm41jpwevjtq4" path="res://Assets/shop/Cards/Attack/Game Jam Common Damage Card.png" id="9_j8xm3"]
+[ext_resource type="Texture2D" uid="uid://chtdcq5dpjsou" path="res://Assets/shop/Cards/Attack/Game Jam Rare Damage Card.png" id="10_7vh4w"]
+[ext_resource type="Texture2D" uid="uid://dakic5md5sqyp" path="res://Assets/shop/Cards/Attack/Game Jam Extraordinary damage Card.png" id="11_npdhm"]
+[ext_resource type="Texture2D" uid="uid://biboee5ngytfd" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Common Fire Rate Card.png" id="12_fuwcu"]
+[ext_resource type="Texture2D" uid="uid://q60m8bro272j" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Rare Fire Rate Card.png" id="13_m3db5"]
+[ext_resource type="Texture2D" uid="uid://dnqcb5ocfrr5n" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Extraordinary Fire Rate Card.png" id="14_k8qpn"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8qn36"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.71
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+scale_max = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 46.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qn36"]
+radius = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppdxs"]
+radius = 68.3593
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22fdy"]
+radius = 22.0227
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24nbk"]
+radius = 28.6356
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_v0iea")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+rotation = -3.14159
+amount = 90
+lifetime = 0.15
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8qn36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cvnsp")
+
+[node name="GameJamWizardHatSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_6t5aa")
+
+[node name="Staff" parent="GameJamWizardHatSprite" instance=ExtResource("2_8qn36")]
+position = Vector2(4, 23)
+
+[node name="LevelCollision" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollision" groups=["Player"]]
+shape = SubResource("CircleShape2D_6t5aa")
+
+[node name="EnemyAreaDetect" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAreaDetect"]
+shape = SubResource("CircleShape2D_8qn36")
+
+[node name="ShopAreaDetect" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopAreaDetect"]
+shape = SubResource("CircleShape2D_ppdxs")
+
+[node name="HitBox" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_22fdy")
+
+[node name="CoinDetect" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinDetect"]
+shape = SubResource("CircleShape2D_24nbk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
+zoom = Vector2(2.5, 2.5)
+position_smoothing_speed = 1.0
+
+[node name="HealthBar" type="ProgressBar" parent="Camera2D"]
+offset_left = -371.0
+offset_top = -205.0
+offset_right = -189.0
+offset_bottom = -178.0
+max_value = 10.0
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="GameJamCoinUiSprite" type="Sprite2D" parent="Camera2D"]
+position = Vector2(-352, -153)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ppdxs")
+
+[node name="Coins" type="Label" parent="Camera2D"]
+offset_left = -330.0
+offset_top = -166.0
+offset_right = -290.0
+offset_bottom = -143.0
+text = "0"
+
+[node name="ShopUI" type="Node2D" parent="Camera2D"]
+z_index = 4
+
+[node name="GameJamBugsy\'sShop" type="Sprite2D" parent="Camera2D/ShopUI"]
+position = Vector2(5.96046e-08, -5.96046e-08)
+scale = Vector2(2.17, 2.17)
+texture = ExtResource("5_22fdy")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/ShopUI"]
+offset_left = 269.0
+offset_top = -217.0
+offset_right = 385.0
+offset_bottom = 218.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/ShopUI"]
+offset_left = -387.0
+offset_top = -217.0
+offset_right = -271.0
+offset_bottom = 218.0
+color = Color(0, 0, 0, 1)
+
+[node name="CommonHealth" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = -187.0
+offset_top = 39.0
+offset_right = -155.0
+offset_bottom = 89.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("6_oxhme")
+texture_pressed = ExtResource("6_oxhme")
+texture_hover = ExtResource("6_oxhme")
+texture_disabled = ExtResource("6_oxhme")
+texture_focused = ExtResource("6_oxhme")
+
+[node name="RareHealth" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = -187.0
+offset_top = 40.0
+offset_right = -155.0
+offset_bottom = 90.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_gfkdj")
+texture_pressed = ExtResource("7_gfkdj")
+texture_hover = ExtResource("7_gfkdj")
+texture_disabled = ExtResource("7_gfkdj")
+texture_focused = ExtResource("7_gfkdj")
+
+[node name="ExtraordinaryHealth" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = -187.0
+offset_top = 40.0
+offset_right = -147.0
+offset_bottom = 90.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("8_xxqkx")
+texture_pressed = ExtResource("8_xxqkx")
+texture_hover = ExtResource("8_xxqkx")
+texture_disabled = ExtResource("8_xxqkx")
+texture_focused = ExtResource("8_xxqkx")
+
+[node name="CommonAttack" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = -57.0
+offset_top = -18.0
+offset_right = -17.0
+offset_bottom = 32.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("9_j8xm3")
+texture_pressed = ExtResource("9_j8xm3")
+texture_hover = ExtResource("9_j8xm3")
+texture_disabled = ExtResource("9_j8xm3")
+texture_focused = ExtResource("9_j8xm3")
+
+[node name="RareAttack" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = -55.0
+offset_top = -18.0
+offset_right = -15.0
+offset_bottom = 32.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("10_7vh4w")
+texture_pressed = ExtResource("10_7vh4w")
+texture_hover = ExtResource("10_7vh4w")
+texture_disabled = ExtResource("10_7vh4w")
+texture_focused = ExtResource("10_7vh4w")
+
+[node name="ExtraordinaryAttack" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = -55.0
+offset_top = -17.0
+offset_right = -15.0
+offset_bottom = 33.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("11_npdhm")
+texture_pressed = ExtResource("11_npdhm")
+texture_hover = ExtResource("11_npdhm")
+texture_disabled = ExtResource("11_npdhm")
+texture_focused = ExtResource("11_npdhm")
+
+[node name="CommonAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = 109.0
+offset_top = 28.0
+offset_right = 149.0
+offset_bottom = 78.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("12_fuwcu")
+texture_pressed = ExtResource("12_fuwcu")
+texture_hover = ExtResource("12_fuwcu")
+texture_disabled = ExtResource("12_fuwcu")
+texture_focused = ExtResource("12_fuwcu")
+
+[node name="RareAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = 110.0
+offset_top = 29.0
+offset_right = 150.0
+offset_bottom = 79.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("13_m3db5")
+texture_pressed = ExtResource("13_m3db5")
+texture_hover = ExtResource("13_m3db5")
+texture_disabled = ExtResource("13_m3db5")
+texture_focused = ExtResource("13_m3db5")
+
+[node name="ExtraordinaryAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
+offset_left = 109.0
+offset_top = 29.0
+offset_right = 149.0
+offset_bottom = 79.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("14_k8qpn")
+texture_pressed = ExtResource("14_k8qpn")
+texture_hover = ExtResource("14_k8qpn")
+texture_disabled = ExtResource("14_k8qpn")
+texture_focused = ExtResource("14_k8qpn")
+
+[node name="DebugCheck" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="CoinDetect" to="." method="_on_coin_detect_area_entered"]
+[connection signal="timeout" from="DebugCheck" to="." method="_on_debug_check_timeout"]
