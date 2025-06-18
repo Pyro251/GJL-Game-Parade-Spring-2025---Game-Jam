@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://mxx6nnxs45b4"]
+[gd_scene load_steps=9 format=3 uid="uid://mxx6nnxs45b4"]
 
 [ext_resource type="Script" uid="uid://fy8t73b6iud2" path="res://Scripts/Menus/main_menu.gd" id="1_38aua"]
+[ext_resource type="Texture2D" uid="uid://bewh17e7pgn61" path="res://Assets/Menus/MainMenu/Game Jam Menu Background.png" id="2_3oot6"]
+[ext_resource type="Texture2D" uid="uid://bs5jn55febxw7" path="res://Assets/Menus/MainMenu/Game Jam Begin Button.png" id="3_jqt56"]
+[ext_resource type="Texture2D" uid="uid://dss5ybwoo3xuh" path="res://Assets/Menus/MainMenu/Game Jam Give Up Button.png" id="4_pktjm"]
+[ext_resource type="Texture2D" uid="uid://ccbm5wxulherd" path="res://Assets/Menus/MainMenu/Game Jam Credits Button.png" id="5_decqg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kstv3"]
+atlas = ExtResource("2_3oot6")
+region = Rect2(0, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtlwg"]
+atlas = ExtResource("2_3oot6")
+region = Rect2(192, 0, 192, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8ru3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kstv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtlwg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,30 +37,52 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_38aua")
 
-[node name="Play" type="Button" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(979, 534)
+scale = Vector2(10.48, 10.48)
+sprite_frames = SubResource("SpriteFrames_b8ru3")
+autoplay = "default"
+frame = 1
+frame_progress = 0.612148
+
+[node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 96.0
 offset_right = 139.0
 offset_bottom = 127.0
-text = "New Game"
+scale = Vector2(3, 3)
+texture_normal = ExtResource("3_jqt56")
+texture_pressed = ExtResource("3_jqt56")
+texture_hover = ExtResource("3_jqt56")
+texture_disabled = ExtResource("3_jqt56")
+texture_focused = ExtResource("3_jqt56")
 
-[node name="Options" type="Button" parent="."]
+[node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 139.0
-offset_right = 118.0
-offset_bottom = 170.0
-text = "Options"
+offset_left = 34.0
+offset_top = 375.0
+offset_right = 114.0
+offset_bottom = 415.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("4_pktjm")
+texture_pressed = ExtResource("4_pktjm")
+texture_hover = ExtResource("4_pktjm")
+texture_disabled = ExtResource("4_pktjm")
+texture_focused = ExtResource("4_pktjm")
 
-[node name="Quit" type="Button" parent="."]
+[node name="Credits" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 182.0
-offset_right = 93.0
-offset_bottom = 213.0
-text = "Quit"
+offset_left = 45.0
+offset_top = 231.0
+offset_right = 125.0
+offset_bottom = 271.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_decqg")
+texture_pressed = ExtResource("5_decqg")
+texture_hover = ExtResource("5_decqg")
+texture_disabled = ExtResource("5_decqg")
+texture_focused = ExtResource("5_decqg")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

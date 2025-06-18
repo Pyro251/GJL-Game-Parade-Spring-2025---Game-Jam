@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c175bxhbp44pf"]
+[gd_scene load_steps=8 format=3 uid="uid://c175bxhbp44pf"]
 
 [ext_resource type="Script" uid="uid://c67esguxi204b" path="res://Scripts/Enemies/MediumEnemy2/medium_enemy_2.gd" id="1_gyh5e"]
 [ext_resource type="Texture2D" uid="uid://culd2ra5y7u5q" path="res://Assets/Enemies/Game Jam Spuck Sprite.png" id="2_ong4w"]
@@ -31,9 +31,6 @@ radius = 39.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ong4w"]
 radius = 209.06
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3axhm"]
-radius = 29.0689
-
 [node name="MediumEnemy2" type="CharacterBody2D" groups=["Medium Enemy 2"]]
 script = ExtResource("1_gyh5e")
 
@@ -59,9 +56,6 @@ shape = SubResource("CircleShape2D_ong4w")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 debug_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3axhm")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]

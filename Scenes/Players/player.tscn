@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b67xmooa7eu6o"]
+[gd_scene load_steps=26 format=3 uid="uid://b67xmooa7eu6o"]
 
 [ext_resource type="Script" uid="uid://dc7eawnw7t7ad" path="res://Scripts/Player/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://det8b61sy32ts" path="res://Scenes/Players/staff.tscn" id="2_8qn36"]
@@ -43,9 +43,20 @@ radius = 22.0227
 [sub_resource type="CircleShape2D" id="CircleShape2D_24nbk"]
 radius = 28.6356
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuwcu"]
+bg_color = Color(0.36906, 0.594786, 0.968547, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3db5"]
+bg_color = Color(0.29323, 0.471981, 0.735202, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vh4w"]
+bg_color = Color(1, 0.0405029, 0.0223527, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npdhm"]
+bg_color = Color(0.0941176, 0.933333, 0.0901961, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_v0iea")
-speed = null
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 rotation = -3.14159
@@ -103,30 +114,46 @@ z_index = 2
 zoom = Vector2(2.5, 2.5)
 position_smoothing_speed = 1.0
 
+[node name="AttackSpeedBar" type="ProgressBar" parent="Camera2D"]
+offset_left = -369.0
+offset_top = -172.0
+offset_right = -203.0
+offset_bottom = -145.0
+theme_override_styles/background = SubResource("StyleBoxFlat_fuwcu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m3db5")
+show_percentage = false
+
+[node name="Label" type="Label" parent="Camera2D/AttackSpeedBar"]
+z_index = 1
+layout_mode = 0
+offset_left = 51.0
+offset_top = -29.0
+offset_right = 103.0
+offset_bottom = -6.0
+text = "Health"
+
 [node name="HealthBar" type="ProgressBar" parent="Camera2D"]
 offset_left = -371.0
 offset_top = -205.0
 offset_right = -189.0
 offset_bottom = -178.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7vh4w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_npdhm")
 max_value = 10.0
 step = 1.0
 rounded = true
 show_percentage = false
 
-[node name="GameJamCoinUiSprite" type="Sprite2D" parent="Camera2D"]
-position = Vector2(-352, -153)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_ppdxs")
-
-[node name="Coins" type="Label" parent="Camera2D"]
-offset_left = -330.0
-offset_top = -166.0
-offset_right = -290.0
-offset_bottom = -143.0
-text = "0"
+[node name="Label" type="Label" parent="Camera2D/HealthBar"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 33.0
+offset_right = 137.0
+offset_bottom = 56.0
+text = "Orb Recharge"
 
 [node name="ShopUI" type="Node2D" parent="Camera2D"]
-z_index = 4
+z_index = 15
 
 [node name="GameJamBugsy\'sShop" type="Sprite2D" parent="Camera2D/ShopUI"]
 position = Vector2(5.96046e-08, -5.96046e-08)
@@ -159,6 +186,15 @@ texture_hover = ExtResource("6_oxhme")
 texture_disabled = ExtResource("6_oxhme")
 texture_focused = ExtResource("6_oxhme")
 
+[node name="Label" type="Label" parent="Camera2D/ShopUI/CommonHealth"]
+layout_mode = 0
+offset_left = -11.3333
+offset_top = -14.0
+offset_right = 38.6667
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 10
+text = "+ 5 Health"
+
 [node name="RareHealth" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -187.0
 offset_top = 40.0
@@ -170,6 +206,15 @@ texture_pressed = ExtResource("7_gfkdj")
 texture_hover = ExtResource("7_gfkdj")
 texture_disabled = ExtResource("7_gfkdj")
 texture_focused = ExtResource("7_gfkdj")
+
+[node name="Label" type="Label" parent="Camera2D/ShopUI/RareHealth"]
+layout_mode = 0
+offset_left = -11.3333
+offset_top = -14.0
+offset_right = 38.6667
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 10
+text = "+ 8 Health"
 
 [node name="ExtraordinaryHealth" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -187.0
@@ -183,6 +228,15 @@ texture_hover = ExtResource("8_xxqkx")
 texture_disabled = ExtResource("8_xxqkx")
 texture_focused = ExtResource("8_xxqkx")
 
+[node name="Label" type="Label" parent="Camera2D/ShopUI/ExtraordinaryHealth"]
+layout_mode = 0
+offset_left = -11.3333
+offset_top = -14.0
+offset_right = 38.6667
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 10
+text = "+ 12 Health"
+
 [node name="CommonAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -57.0
 offset_top = -18.0
@@ -194,6 +248,15 @@ texture_pressed = ExtResource("9_j8xm3")
 texture_hover = ExtResource("9_j8xm3")
 texture_disabled = ExtResource("9_j8xm3")
 texture_focused = ExtResource("9_j8xm3")
+
+[node name="Label" type="Label" parent="Camera2D/ShopUI/CommonAttack"]
+layout_mode = 0
+offset_left = -11.3333
+offset_top = -14.0
+offset_right = 38.6667
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 10
+text = "+ 1 Attack"
 
 [node name="RareAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -55.0
@@ -207,6 +270,15 @@ texture_hover = ExtResource("10_7vh4w")
 texture_disabled = ExtResource("10_7vh4w")
 texture_focused = ExtResource("10_7vh4w")
 
+[node name="Label" type="Label" parent="Camera2D/ShopUI/RareAttack"]
+layout_mode = 0
+offset_left = -11.3333
+offset_top = -14.0
+offset_right = 38.6667
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 10
+text = "+ 1.5 Attack"
+
 [node name="ExtraordinaryAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -55.0
 offset_top = -17.0
@@ -218,6 +290,15 @@ texture_pressed = ExtResource("11_npdhm")
 texture_hover = ExtResource("11_npdhm")
 texture_disabled = ExtResource("11_npdhm")
 texture_focused = ExtResource("11_npdhm")
+
+[node name="Label" type="Label" parent="Camera2D/ShopUI/ExtraordinaryAttack"]
+layout_mode = 0
+offset_left = -11.3333
+offset_top = -14.0
+offset_right = 38.6667
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 10
+text = "+ 2 Attack"
 
 [node name="CommonAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 109.0
@@ -231,6 +312,15 @@ texture_hover = ExtResource("12_fuwcu")
 texture_disabled = ExtResource("12_fuwcu")
 texture_focused = ExtResource("12_fuwcu")
 
+[node name="Label" type="Label" parent="Camera2D/ShopUI/CommonAttackSpeed"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -10.6667
+offset_right = 61.0
+offset_bottom = 12.3333
+theme_override_font_sizes/font_size = 8
+text = "+ 2g Attack Speed"
+
 [node name="RareAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 110.0
 offset_top = 29.0
@@ -242,6 +332,15 @@ texture_pressed = ExtResource("13_m3db5")
 texture_hover = ExtResource("13_m3db5")
 texture_disabled = ExtResource("13_m3db5")
 texture_focused = ExtResource("13_m3db5")
+
+[node name="Label" type="Label" parent="Camera2D/ShopUI/RareAttackSpeed"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -10.6667
+offset_right = 61.0
+offset_bottom = 12.3333
+theme_override_font_sizes/font_size = 8
+text = "+ 4 Attack Speed"
 
 [node name="ExtraordinaryAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 109.0
@@ -255,9 +354,44 @@ texture_hover = ExtResource("14_k8qpn")
 texture_disabled = ExtResource("14_k8qpn")
 texture_focused = ExtResource("14_k8qpn")
 
+[node name="Label" type="Label" parent="Camera2D/ShopUI/ExtraordinaryAttackSpeed"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -10.6667
+offset_right = 61.0
+offset_bottom = 12.3333
+theme_override_font_sizes/font_size = 8
+text = "+ 6 Attack Speed"
+
+[node name="Coins" type="Label" parent="Camera2D"]
+z_index = 16
+offset_left = -332.0
+offset_top = -125.0
+offset_right = -292.0
+offset_bottom = -102.0
+text = "0"
+
+[node name="GameJamCoinUiSprite" type="Sprite2D" parent="Camera2D"]
+z_index = 16
+position = Vector2(-358, -113)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ppdxs")
+
 [node name="DebugCheck" type="Timer" parent="."]
 autostart = true
 
+[node name="AttackSpeed" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="CoinDetect" to="." method="_on_coin_detect_area_entered"]
+[connection signal="pressed" from="Camera2D/ShopUI/CommonHealth" to="." method="_on_common_health_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/RareHealth" to="." method="_on_rare_health_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/ExtraordinaryHealth" to="." method="_on_extraordinary_health_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/CommonAttack" to="." method="_on_common_attack_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/RareAttack" to="." method="_on_rare_attack_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/ExtraordinaryAttack" to="." method="_on_extraordinary_attack_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/CommonAttackSpeed" to="." method="_on_common_attack_speed_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/RareAttackSpeed" to="." method="_on_rare_attack_speed_pressed"]
+[connection signal="pressed" from="Camera2D/ShopUI/ExtraordinaryAttackSpeed" to="." method="_on_extraordinary_attack_speed_pressed"]
 [connection signal="timeout" from="DebugCheck" to="." method="_on_debug_check_timeout"]

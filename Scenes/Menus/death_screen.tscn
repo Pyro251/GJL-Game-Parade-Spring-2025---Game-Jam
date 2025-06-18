@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://5krec5vi1aud"]
+
+[ext_resource type="Script" uid="uid://dokuowl6fk0e8" path="res://Scripts/Menus/death_screen.gd" id="1_awtwc"]
+[ext_resource type="Texture2D" uid="uid://cqdm8no5co8wx" path="res://Assets/Menus/DeathScreen/pixil-frame-0.png" id="2_nl8mi"]
+[ext_resource type="Texture2D" uid="uid://c41bqvlm22tux" path="res://Assets/Menus/DeathScreen/Game Jam Get Back Up Button.png" id="3_whv4k"]
+
+[node name="DeathScreen" type="CanvasLayer"]
+script = ExtResource("1_awtwc")
+
+[node name="Pixil-frame-0" type="Sprite2D" parent="."]
+position = Vector2(957, 559)
+scale = Vector2(10.4, 10.348)
+texture = ExtResource("2_nl8mi")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 648.0
+offset_top = 672.0
+offset_right = 728.0
+offset_bottom = 712.0
+scale = Vector2(8.09, 8.09)
+texture_normal = ExtResource("3_whv4k")
+texture_pressed = ExtResource("3_whv4k")
+texture_hover = ExtResource("3_whv4k")
+texture_disabled = ExtResource("3_whv4k")
+texture_focused = ExtResource("3_whv4k")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
