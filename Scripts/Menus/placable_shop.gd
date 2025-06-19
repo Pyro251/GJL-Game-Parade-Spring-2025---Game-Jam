@@ -13,13 +13,13 @@ func _on_player_detect_area_entered(area: Area2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shop") and able_to_open_shop == true:
+		print("shop button pressed")
 		if shop_open == false:
 			shop_open = true
 			print("trying to set shop open to true")
 		elif shop_open == true:
 			shop_open = false
 			print("trying to set shop open to false")
-		print("shop button pressed")
 	
 	if shop_open == true:
 		Global.hide_shop = false

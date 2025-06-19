@@ -1,15 +1,17 @@
-[gd_scene load_steps=26 format=3 uid="uid://bapjoa1ncbi0m"]
+[gd_scene load_steps=27 format=3 uid="uid://bapjoa1ncbi0m"]
 
 [ext_resource type="Script" uid="uid://dka2f3vh4n020" path="res://Scripts/Levels/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://b67xmooa7eu6o" path="res://Scenes/Players/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://34ap7p1yr38t" path="res://Assets/Tile Maps/Sprite-0001-Sheet-sheet.png" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://bh4ubs23wgi1u" path="res://Scenes/Enemies/easy_enemy_1.tscn" id="5_adcqc"]
-[ext_resource type="Texture2D" uid="uid://75343q31pqxx" path="res://Assets/shop/Shop/Game Jam Shop Sprite.png" id="5_l1hd3"]
 [ext_resource type="PackedScene" uid="uid://dkmpymvaeylwv" path="res://Scenes/Enemies/easy_enemy_2.tscn" id="6_adcqc"]
 [ext_resource type="Texture2D" uid="uid://di2u8832tbwei" path="res://Assets/Tile Maps/W A L L S.png" id="7_7staa"]
 [ext_resource type="PackedScene" uid="uid://do00qdtob1ce4" path="res://Scenes/Enemies/medium_enemy_1.tscn" id="8_y0d6x"]
 [ext_resource type="PackedScene" uid="uid://c175bxhbp44pf" path="res://Scenes/Enemies/medium_enemy_2.tscn" id="9_ugf0j"]
 [ext_resource type="PackedScene" uid="uid://d1jfd2dbcyi71" path="res://Scenes/Shop/placable_shop.tscn" id="10_ugf0j"]
+[ext_resource type="PackedScene" uid="uid://c17rrich463k2" path="res://Scenes/World/level_barrier.tscn" id="11_0ph6x"]
+[ext_resource type="PackedScene" uid="uid://rbnkdojedvjo" path="res://Scenes/Enemies/hard_enemy_1.tscn" id="11_pvt60"]
+[ext_resource type="PackedScene" uid="uid://vuf4tli3mk5y" path="res://Scenes/Enemies/hard_enemy_2.tscn" id="12_vbhkl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vadfg"]
 
@@ -519,9 +521,6 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_y0d6x"]
 sources/0 = SubResource("TileSetAtlasSource_fcotr")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j60k"]
-size = Vector2(1209, 85)
-
 [node name="World" type="Node2D"]
 script = ExtResource("1_5a7ea")
 metadata/_edit_horizontal_guides_ = [-1823.0]
@@ -548,136 +547,6 @@ metadata/_edit_group_ = true
 [node name="Player" parent="." instance=ExtResource("1_a02cp")]
 rotation = -0.00255597
 speed = 400
-
-[node name="Blackness0" type="Node2D" parent="."]
-visible = false
-z_index = 1
-
-[node name="ColorRect" type="ColorRect" parent="Blackness0"]
-z_index = 1
-offset_left = -110.0
-offset_top = -41.0
-offset_right = 637.0
-offset_bottom = 44.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Blackness0"]
-z_index = 1
-offset_left = 568.0
-offset_top = -265.0
-offset_right = 1173.0
-offset_bottom = 41.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Blackness0"]
-z_index = 1
-offset_left = 631.0
-offset_top = 27.0
-offset_right = 1165.0
-offset_bottom = 460.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Blackness0"]
-z_index = 1
-offset_left = 1113.0
-offset_top = 213.0
-offset_right = 1584.0
-offset_bottom = 460.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="Blackness1" type="Node2D" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Blackness1"]
-z_index = 1
-offset_left = 1602.0
-offset_top = -4.0
-offset_right = 2256.0
-offset_bottom = 1009.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Blackness1"]
-z_index = 1
-offset_left = 1582.0
-offset_top = 794.0
-offset_right = 1677.0
-offset_bottom = 1005.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Blackness1"]
-z_index = 1
-offset_left = 1568.0
-offset_top = 278.0
-offset_right = 2256.0
-offset_bottom = 400.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Blackness1"]
-z_index = 1
-offset_left = 1367.0
-offset_top = 814.0
-offset_right = 1584.0
-offset_bottom = 1010.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="Blackness2" type="Node2D" parent="."]
-visible = false
-z_index = 1
-
-[node name="ColorRect2" type="ColorRect" parent="Blackness2"]
-z_index = 1
-offset_left = 162.0
-offset_top = 872.0
-offset_right = 1380.0
-offset_bottom = 982.0
-color = Color(0.152941, 0.14902, 0.176471, 1)
-
-[node name="Level0" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level0"]
-visible = false
-polygon = PackedVector2Array(-101, -36, 572, -35, 573, -265, 1165, -264, 1164, 211, 1583, 215, 1583, 447, 1568, 461, 624, 459, 626, 46, -107, 43)
-
-[node name="Level1" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1"]
-visible = false
-position = Vector2(1251, 448)
-polygon = PackedVector2Array(574, 157, 572, -35, 588, -443, 1007, -431, 1012, 374, 1009, 474, 1009, 568, 322, 561, 117, 555, 122, 382, 584, 376)
-
-[node name="Level2" type="Area2D" parent="."]
-position = Vector2(1971, 243)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2"]
-visible = false
-position = Vector2(766.5, 930.5)
-shape = SubResource("RectangleShape2D_8j60k")
-
-[node name="GameJamShopSprite" type="Sprite2D" parent="."]
-position = Vector2(-1673, 96)
-texture = ExtResource("5_l1hd3")
-
-[node name="GameJamShopSprite3" type="Sprite2D" parent="."]
-position = Vector2(536, -1537)
-texture = ExtResource("5_l1hd3")
-
-[node name="GameJamShopSprite4" type="Sprite2D" parent="."]
-position = Vector2(3136, -66)
-texture = ExtResource("5_l1hd3")
-
-[node name="GameJamShopSprite5" type="Sprite2D" parent="."]
-position = Vector2(2646, 2107)
-texture = ExtResource("5_l1hd3")
-
-[node name="GameJamShopSprite6" type="Sprite2D" parent="."]
-position = Vector2(-261, 3133)
-texture = ExtResource("5_l1hd3")
 
 [node name="EasyEnemy1" parent="." instance=ExtResource("5_adcqc")]
 position = Vector2(892, -216)
@@ -811,6 +680,354 @@ position = Vector2(-2155, 431)
 [node name="Placable Shop" parent="." instance=ExtResource("10_ugf0j")]
 position = Vector2(249, 863)
 
-[connection signal="area_entered" from="Level0" to="." method="_on_level_0_area_entered"]
-[connection signal="area_entered" from="Level1" to="." method="_on_level_1_area_entered"]
-[connection signal="area_entered" from="Level2" to="." method="_on_level_2_area_entered"]
+[node name="LevelBarrier" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(1610, 286)
+rotation = 1.5708
+
+[node name="LevelBarrier2" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(1310, 874)
+rotation = 1.5708
+
+[node name="LevelBarrier3" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(163, 872)
+rotation = 1.5708
+
+[node name="LevelBarrier4" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-480, 908)
+rotation = 1.5708
+
+[node name="LevelBarrier5" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-1383, 1073)
+rotation = 1.5708
+
+[node name="LevelBarrier6" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-1616, 379)
+
+[node name="LevelBarrier7" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-1807, -225)
+
+[node name="LevelBarrier8" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-401, -733)
+
+[node name="LevelBarrier9" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(961, -1520)
+rotation = 1.5708
+
+[node name="LevelBarrier10" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(1882, -1524)
+rotation = 1.5708
+
+[node name="LevelBarrier12" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(3245, -653)
+
+[node name="LevelBarrier13" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(2970, -49)
+rotation = 1.5708
+
+[node name="LevelBarrier14" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(3505, 960)
+
+[node name="LevelBarrier15" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(3373, 1502)
+
+[node name="LevelBarrier16" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(2530, 2124)
+rotation = 1.5708
+
+[node name="LevelBarrier17" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(1764, 1651)
+rotation = 1.5708
+
+[node name="LevelBarrier18" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-384, 3152)
+rotation = 1.5708
+
+[node name="LevelBarrier19" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-2497, 3149)
+rotation = 1.5708
+
+[node name="LevelBarrier20" parent="." instance=ExtResource("11_0ph6x")]
+position = Vector2(-3296, 1961)
+rotation = 1.5708
+
+[node name="Placable Shop2" parent="." instance=ExtResource("10_ugf0j")]
+position = Vector2(-1733, 96)
+
+[node name="Placable Shop3" parent="." instance=ExtResource("10_ugf0j")]
+position = Vector2(573, -1539)
+
+[node name="Placable Shop4" parent="." instance=ExtResource("10_ugf0j")]
+position = Vector2(3175, -65)
+
+[node name="Placable Shop5" parent="." instance=ExtResource("10_ugf0j")]
+position = Vector2(2652, 2109)
+
+[node name="Placable Shop6" parent="." instance=ExtResource("10_ugf0j")]
+position = Vector2(-267, 3135)
+
+[node name="EasyEnemy40" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(-1141, -503)
+
+[node name="EasyEnemy41" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(-1153, -336)
+
+[node name="EasyEnemy42" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(-1075, -224)
+
+[node name="MediumEnemy5" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(-1007, -351)
+
+[node name="MediumEnemy6" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(-710, -1185)
+
+[node name="MediumEnemy7" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(39, -1177)
+
+[node name="MediumEnemy8" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(-339, -971)
+
+[node name="MediumEnemy9" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(-337, -1356)
+
+[node name="MediumEnemy10" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(25, -1670)
+
+[node name="MediumEnemy11" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(-708, -1682)
+
+[node name="MediumEnemy12" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(-328, -1694)
+
+[node name="MediumEnemy13" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(1384, -1481)
+
+[node name="EasyEnemy43" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1217, -1475)
+
+[node name="EasyEnemy44" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1471, -1601)
+
+[node name="EasyEnemy45" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1471, -1355)
+
+[node name="EasyEnemy46" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1273, -1378)
+
+[node name="EasyEnemy47" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(1288, -1604)
+
+[node name="EasyEnemy48" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2043, -1823)
+
+[node name="EasyEnemy49" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2244, -1462)
+
+[node name="EasyEnemy50" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2281, -1631)
+
+[node name="EasyEnemy51" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2580, -1820)
+
+[node name="EasyEnemy52" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2931, -1537)
+
+[node name="EasyEnemy53" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2503, -1392)
+
+[node name="EasyEnemy54" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(3183, -1458)
+
+[node name="EasyEnemy55" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(2907, -1078)
+
+[node name="EasyEnemy56" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(3295, -981)
+
+[node name="MediumEnemy14" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(4094, -600)
+
+[node name="MediumEnemy15" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3804, -565)
+
+[node name="MediumEnemy16" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3858, -105)
+
+[node name="MediumEnemy17" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3533, -251)
+
+[node name="MediumEnemy18" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(3220, 484)
+
+[node name="MediumEnemy19" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(3396, 475)
+
+[node name="MediumEnemy20" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(3364, 671)
+
+[node name="EasyEnemy57" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(3085, 889)
+
+[node name="EasyEnemy58" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(3559, 1194)
+
+[node name="EasyEnemy59" parent="." instance=ExtResource("5_adcqc")]
+position = Vector2(3548, 1275)
+
+[node name="EasyEnemy60" parent="." instance=ExtResource("6_adcqc")]
+position = Vector2(3711, 1273)
+
+[node name="MediumEnemy21" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3945, 1267)
+
+[node name="MediumEnemy22" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3427, 2089)
+
+[node name="MediumEnemy23" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3592, 2066)
+
+[node name="MediumEnemy24" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3306, 2053)
+
+[node name="MediumEnemy25" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(3693, 1945)
+
+[node name="MediumEnemy26" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(3436, 1828)
+
+[node name="MediumEnemy27" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(3119, 2225)
+
+[node name="HardEnemy1" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(3117, 2022)
+
+[node name="HardEnemy2" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(2322, 1655)
+
+[node name="MediumEnemy28" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(2166, 1768)
+
+[node name="MediumEnemy29" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(2242, 1426)
+
+[node name="HardEnemy3" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(2043, 1652)
+
+[node name="HardEnemy4" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(2513, 1577)
+
+[node name="HardEnemy5" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(722, 2018)
+
+[node name="HardEnemy6" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(1066, 2061)
+
+[node name="HardEnemy7" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(536, 1983)
+
+[node name="HardEnemy8" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(838, 2562)
+
+[node name="HardEnemy9" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(69, 2630)
+
+[node name="HardEnemy10" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-1102, 2991)
+
+[node name="HardEnemy11" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-1080, 3399)
+
+[node name="HardEnemy12" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-1454, 2850)
+
+[node name="HardEnemy13" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-1476, 3424)
+
+[node name="HardEnemy14" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-1507, 3158)
+
+[node name="HardEnemy15" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-886, 2524)
+
+[node name="HardEnemy16" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-1488, 2361)
+
+[node name="HardEnemy17" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-879, 3845)
+
+[node name="HardEnemy18" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-1429, 4008)
+
+[node name="MediumEnemy30" parent="." instance=ExtResource("9_ugf0j")]
+position = Vector2(-2289, 2991)
+
+[node name="MediumEnemy31" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(-2103, 3666)
+
+[node name="MediumEnemy32" parent="." instance=ExtResource("8_y0d6x")]
+position = Vector2(-1997, 2803)
+
+[node name="HardEnemy19" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-814, 3187)
+
+[node name="HardEnemy20" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-3227, 2784)
+
+[node name="HardEnemy21" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-2876, 2774)
+
+[node name="HardEnemy22" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-3055, 2365)
+
+[node name="HardEnemy23" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-2712, 2693)
+
+[node name="HardEnemy24" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-3359, 2553)
+
+[node name="HardEnemy25" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-2840, 2140)
+
+[node name="HardEnemy26" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-3239, 1707)
+
+[node name="HardEnemy27" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-3018, 1900)
+
+[node name="HardEnemy28" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4575, 1538)
+
+[node name="HardEnemy29" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4392, 1530)
+
+[node name="HardEnemy30" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4120, 1532)
+
+[node name="HardEnemy31" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4580, 1332)
+
+[node name="HardEnemy32" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4382, 1329)
+
+[node name="HardEnemy33" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4153, 1313)
+
+[node name="HardEnemy34" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4566, 1144)
+
+[node name="HardEnemy35" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4358, 1139)
+
+[node name="HardEnemy36" parent="." instance=ExtResource("12_vbhkl")]
+position = Vector2(-4142, 1136)
+
+[node name="HardEnemy37" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-4649, 1426)
+
+[node name="HardEnemy38" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-4155, 1418)
+
+[node name="HardEnemy39" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-4463, 1209)
+
+[node name="HardEnemy40" parent="." instance=ExtResource("11_pvt60")]
+position = Vector2(-4253, 1212)

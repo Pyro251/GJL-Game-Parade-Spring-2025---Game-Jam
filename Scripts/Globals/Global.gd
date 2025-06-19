@@ -1,7 +1,10 @@
 extends Node
 
 var player
-var player_health = 10
-var max_player_health = 10.0
-var orb_damage = 1
-var hide_shop = true
+@onready var player_health = 1500 #was 10
+@onready var max_player_health = 10000.0 # was 10
+@onready var orb_damage = 0.5
+@onready var attack_speed = 0.8
+@onready var level = 1
+@onready var hide_shop = true
+@onready var can_fire_bullet = true
