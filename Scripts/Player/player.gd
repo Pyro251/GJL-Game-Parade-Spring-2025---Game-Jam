@@ -41,7 +41,7 @@ func _physics_process(delta):
 	coins_label.text = str(coins)
 	
 	if Global.hide_shop == true:
-		shop_ui.hide()
+		shop_ui.show()
 	if Global.hide_shop == false:
 		shop_ui.show()
 	
@@ -140,55 +140,55 @@ func _on_common_health_pressed() -> void:
 	if coins >= 4:
 		Global.max_player_health += 5
 		coins -= 4
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_rare_health_pressed() -> void:
 	if coins >= 12:
 		Global.max_player_health += 8
 		coins -= 12
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_extraordinary_health_pressed() -> void:
 	if coins >= 20:
 		Global.max_player_health += 12
 		coins -= 20
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_common_attack_pressed() -> void:
 	if coins >= 5:
 		Global.orb_damage += 1
 		coins -= 5
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_rare_attack_pressed() -> void:
 	if coins >= 10:
 		Global.orb_damage += 1.5
 		coins -= 10
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_extraordinary_attack_pressed() -> void:
 	if coins >= 18:
 		Global.orb_damage += 2
 		coins -= 18
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_common_attack_speed_pressed() -> void:
 	if coins <= 5:
 		Global.attack_speed -= 0.05
 		coins -= 5
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_rare_attack_speed_pressed() -> void:
 	if coins <= 14:
 		Global.attack_speed -= 0.1
 		coins -= 14
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_extraordinary_attack_speed_pressed() -> void:
 	if coins <= 22:
 		Global.attack_speed -= 0.2
 		coins -= 22
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func die():
 	get_tree().change_scene_to_file("res://Scenes/Menus/death_screen.tscn")
