@@ -41,7 +41,7 @@ func _physics_process(delta):
 	coins_label.text = str(coins)
 	
 	if Global.hide_shop == true:
-		shop_ui.show()
+		shop_ui.hide()
 	if Global.hide_shop == false:
 		shop_ui.show()
 	
