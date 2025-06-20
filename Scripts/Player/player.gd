@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var shop_ui: Node2D = $Camera2D/ShopUI
 @onready var attack_speed_timer: Timer = $AttackSpeed
 @onready var attack_speed_bar: ProgressBar = $Camera2D/AttackSpeedBar
+@onready var press_space_to_open_shop_label: Label = $Camera2D/PressSpaceToOpenShop
 
 #card onready vars
 @onready var common_health: TextureButton = $Camera2D/ShopUI/CommonHealth
@@ -25,6 +26,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	Global.player = $"."
+	press_space_to_open_shop_label.hide()
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -192,3 +194,11 @@ func _on_extraordinary_attack_speed_pressed() -> void:
 
 func die():
 	get_tree().change_scene_to_file("res://Scenes/Menus/death_screen.tscn")
+
+
+func _on_shop_area_detect_area_entered(area: Area2D) -> void:
+	press_space_to_open_shop_label.show()
+
+
+func _on_shop_area_detect_area_exited(area: Area2D) -> void:
+	press_space_to_open_shop_label.hide()

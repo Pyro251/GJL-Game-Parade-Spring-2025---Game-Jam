@@ -114,6 +114,13 @@ z_index = 2
 zoom = Vector2(2.5, 2.5)
 position_smoothing_speed = 1.0
 
+[node name="PressSpaceToOpenShop" type="Label" parent="Camera2D"]
+offset_left = -100.0
+offset_top = 189.0
+offset_right = 101.0
+offset_bottom = 212.0
+text = "Press Space to Open Shop"
+
 [node name="AttackSpeedBar" type="ProgressBar" parent="Camera2D"]
 offset_left = -369.0
 offset_top = -172.0
@@ -153,6 +160,7 @@ offset_bottom = 56.0
 text = "Orb Recharge"
 
 [node name="ShopUI" type="Node2D" parent="Camera2D"]
+visible = false
 z_index = 15
 
 [node name="GameJamBugsy\'sShop" type="Sprite2D" parent="Camera2D/ShopUI"]
@@ -383,6 +391,8 @@ autostart = true
 [node name="AttackSpeed" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="area_entered" from="ShopAreaDetect" to="." method="_on_shop_area_detect_area_entered"]
+[connection signal="area_exited" from="ShopAreaDetect" to="." method="_on_shop_area_detect_area_exited"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="CoinDetect" to="." method="_on_coin_detect_area_entered"]
 [connection signal="pressed" from="Camera2D/ShopUI/CommonHealth" to="." method="_on_common_health_pressed"]
