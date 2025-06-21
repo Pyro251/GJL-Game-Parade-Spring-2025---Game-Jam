@@ -91,14 +91,12 @@ func _on_debug_check_timeout() -> void:
 	if Global.hide_shop == false:
 		print("shop shown")
 
-<<<<<<< HEAD
 
-=======
 func pick_shop_items():
 	var pick_health_card = rng.randi_range(1, 3)
 	var pick_attack_card = rng.randi_range(1, 3)
 	var pick_attack_speed_card = rng.randi_range(1, 3)
->>>>>>> main
+
 	
 	#pick health card
 	if pick_health_card == 1:
