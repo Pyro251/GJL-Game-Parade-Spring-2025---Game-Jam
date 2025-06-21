@@ -1,8 +1,8 @@
 extends Node
 
 var player
-@onready var player_health = 1500 #was 10
-@onready var max_player_health = 10000.0 # was 10
+@onready var player_health = 10
+@onready var max_player_health = 10
 @onready var orb_damage = 0.5
 @onready var attack_speed = 0.8
 @onready var level = 1

@@ -60,10 +60,10 @@ texture_focused = ExtResource("3_jqt56")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 375.0
-offset_right = 114.0
-offset_bottom = 415.0
+offset_left = 45.0
+offset_top = 374.0
+offset_right = 125.0
+offset_bottom = 414.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("4_pktjm")
 texture_pressed = ExtResource("4_pktjm")

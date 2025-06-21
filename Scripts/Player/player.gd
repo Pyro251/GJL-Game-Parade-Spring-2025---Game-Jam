@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var attack_speed_timer: Timer = $AttackSpeed
 @onready var attack_speed_bar: ProgressBar = $Camera2D/AttackSpeedBar
 @onready var press_space_to_open_shop_label: Label = $Camera2D/PressSpaceToOpenShop
+@onready var level_number_label: Label = $Camera2D/LevelNumber
 
 #card onready vars
 @onready var common_health: TextureButton = $Camera2D/ShopUI/CommonHealth
@@ -41,6 +42,7 @@ func _physics_process(delta):
 	health_bar.value = Global.player_health
 	
 	coins_label.text = str(coins)
+	level_number_label.text = str(Global.level)
 	
 	if Global.hide_shop == true:
 		shop_ui.hide()
@@ -175,19 +177,19 @@ func _on_extraordinary_attack_pressed() -> void:
 		#Global.hide_shop = true
 
 func _on_common_attack_speed_pressed() -> void:
-	if coins <= 5:
+	if coins >= 5:
 		Global.attack_speed -= 0.05
 		coins -= 5
 		#Global.hide_shop = true
 
 func _on_rare_attack_speed_pressed() -> void:
-	if coins <= 14:
+	if coins >= 14:
 		Global.attack_speed -= 0.1
 		coins -= 14
 		#Global.hide_shop = true
 
 func _on_extraordinary_attack_speed_pressed() -> void:
-	if coins <= 22:
+	if coins >= 22:
 		Global.attack_speed -= 0.2
 		coins -= 22
 		#Global.hide_shop = true

@@ -398,6 +398,22 @@ position = Vector2(-358, -113)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_ppdxs")
 
+[node name="Level" type="Label" parent="Camera2D"]
+offset_left = -57.0
+offset_top = -217.0
+offset_right = 8.0
+offset_bottom = -181.0
+theme_override_font_sizes/font_size = 26
+text = "Level"
+
+[node name="LevelNumber" type="Label" parent="Camera2D"]
+offset_left = 11.0
+offset_top = -218.0
+offset_right = 51.0
+offset_bottom = -181.0
+theme_override_font_sizes/font_size = 27
+text = "00"
+
 [node name="DebugCheck" type="Timer" parent="."]
 autostart = true
 
