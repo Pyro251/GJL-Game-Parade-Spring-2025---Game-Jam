@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var shop_ui: Node2D = $Camera2D/ShopUI
 @onready var attack_speed_timer: Timer = $AttackSpeed
 @onready var attack_speed_bar: ProgressBar = $Camera2D/AttackSpeedBar
+@onready var press_space_to_open_shop_label: Label = $Camera2D/PressSpaceToOpenShop
 
 #card onready vars
 @onready var common_health: TextureButton = $Camera2D/ShopUI/CommonHealth
@@ -25,6 +26,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	Global.player = $"."
+	press_space_to_open_shop_label.hide()
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -144,55 +146,63 @@ func _on_common_health_pressed() -> void:
 	if coins >= 4:
 		Global.max_player_health += 5
 		coins -= 4
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_rare_health_pressed() -> void:
 	if coins >= 12:
 		Global.max_player_health += 8
 		coins -= 12
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_extraordinary_health_pressed() -> void:
 	if coins >= 20:
 		Global.max_player_health += 12
 		coins -= 20
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_common_attack_pressed() -> void:
 	if coins >= 5:
 		Global.orb_damage += 1
 		coins -= 5
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_rare_attack_pressed() -> void:
 	if coins >= 10:
 		Global.orb_damage += 1.5
 		coins -= 10
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_extraordinary_attack_pressed() -> void:
 	if coins >= 18:
 		Global.orb_damage += 2
 		coins -= 18
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_common_attack_speed_pressed() -> void:
 	if coins <= 5:
 		Global.attack_speed -= 0.05
 		coins -= 5
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_rare_attack_speed_pressed() -> void:
 	if coins <= 14:
 		Global.attack_speed -= 0.1
 		coins -= 14
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func _on_extraordinary_attack_speed_pressed() -> void:
 	if coins <= 22:
 		Global.attack_speed -= 0.2
 		coins -= 22
-		Global.hide_shop = true
+		#Global.hide_shop = true
 
 func die():
 	get_tree().change_scene_to_file("res://Scenes/Menus/death_screen.tscn")
+
+
+func _on_shop_area_detect_area_entered(area: Area2D) -> void:
+	press_space_to_open_shop_label.show()
+
+
+func _on_shop_area_detect_area_exited(area: Area2D) -> void:
+	press_space_to_open_shop_label.hide()
