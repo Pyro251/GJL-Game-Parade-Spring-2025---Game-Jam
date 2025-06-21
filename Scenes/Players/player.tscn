@@ -50,10 +50,10 @@ bg_color = Color(0.36906, 0.594786, 0.968547, 1)
 bg_color = Color(0.29323, 0.471981, 0.735202, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vh4w"]
-bg_color = Color(1, 0.0405029, 0.0223527, 1)
+bg_color = Color(0.733002, 2.75549e-06, 6.73831e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npdhm"]
-bg_color = Color(0.0941176, 0.933333, 0.0901961, 1)
+bg_color = Color(0.0805432, 0.712891, 0.07472, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_v0iea")
@@ -137,6 +137,8 @@ offset_left = 51.0
 offset_top = -29.0
 offset_right = 103.0
 offset_bottom = -6.0
+scale = Vector2(0.245, 0.245)
+theme_override_font_sizes/font_size = 76
 text = "Health"
 
 [node name="HealthBar" type="ProgressBar" parent="Camera2D"]
@@ -157,6 +159,8 @@ offset_left = 31.0
 offset_top = 33.0
 offset_right = 137.0
 offset_bottom = 56.0
+scale = Vector2(0.505, 0.505)
+theme_override_font_sizes/font_size = 36
 text = "Orb Recharge"
 
 [node name="ShopUI" type="Node2D" parent="Camera2D"]
@@ -200,7 +204,8 @@ offset_left = -11.3333
 offset_top = -14.0
 offset_right = 38.6667
 offset_bottom = 9.0
-theme_override_font_sizes/font_size = 10
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 5 Health"
 
 [node name="RareHealth" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -221,7 +226,8 @@ offset_left = -11.3333
 offset_top = -14.0
 offset_right = 38.6667
 offset_bottom = 9.0
-theme_override_font_sizes/font_size = 10
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 8 Health"
 
 [node name="ExtraordinaryHealth" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -242,7 +248,8 @@ offset_left = -11.3333
 offset_top = -14.0
 offset_right = 38.6667
 offset_bottom = 9.0
-theme_override_font_sizes/font_size = 10
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 12 Health"
 
 [node name="CommonAttack" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -263,7 +270,8 @@ offset_left = -11.3333
 offset_top = -14.0
 offset_right = 38.6667
 offset_bottom = 9.0
-theme_override_font_sizes/font_size = 10
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 1 Attack"
 
 [node name="RareAttack" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -284,7 +292,8 @@ offset_left = -11.3333
 offset_top = -14.0
 offset_right = 38.6667
 offset_bottom = 9.0
-theme_override_font_sizes/font_size = 10
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 1.5 Attack"
 
 [node name="ExtraordinaryAttack" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -305,7 +314,8 @@ offset_left = -11.3333
 offset_top = -14.0
 offset_right = 38.6667
 offset_bottom = 9.0
-theme_override_font_sizes/font_size = 10
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 2 Attack"
 
 [node name="CommonAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -326,7 +336,8 @@ offset_left = -19.0
 offset_top = -10.6667
 offset_right = 61.0
 offset_bottom = 12.3333
-theme_override_font_sizes/font_size = 8
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 2g Attack Speed"
 
 [node name="RareAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -347,7 +358,8 @@ offset_left = -19.0
 offset_top = -10.6667
 offset_right = 61.0
 offset_bottom = 12.3333
-theme_override_font_sizes/font_size = 8
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 4 Attack Speed"
 
 [node name="ExtraordinaryAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
@@ -368,7 +380,8 @@ offset_left = -19.0
 offset_top = -10.6667
 offset_right = 61.0
 offset_bottom = 12.3333
-theme_override_font_sizes/font_size = 8
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
 text = "+ 6 Attack Speed"
 
 [node name="Coins" type="Label" parent="Camera2D"]
