@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b67xmooa7eu6o"]
+[gd_scene load_steps=33 format=3 uid="uid://b67xmooa7eu6o"]
 
 [ext_resource type="Script" uid="uid://dc7eawnw7t7ad" path="res://Scripts/Player/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://det8b61sy32ts" path="res://Scenes/Players/staff.tscn" id="2_8qn36"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://biboee5ngytfd" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Common Fire Rate Card.png" id="12_fuwcu"]
 [ext_resource type="Texture2D" uid="uid://q60m8bro272j" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Rare Fire Rate Card.png" id="13_m3db5"]
 [ext_resource type="Texture2D" uid="uid://dnqcb5ocfrr5n" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Extraordinary Fire Rate Card.png" id="14_k8qpn"]
+[ext_resource type="AudioStream" uid="uid://b8tq0kn16awot" path="res://Sound/SFX/hitHurt (2).wav" id="15_13iwc"]
 [ext_resource type="AudioStream" uid="uid://byr7iu8n5no32" path="res://Sound/SFX/pickupCoin.wav" id="15_fuwcu"]
 [ext_resource type="AudioStream" uid="uid://b42c8fhfbgnc4" path="res://Sound/SFX/hitHurt (1).wav" id="15_k8qpn"]
 [ext_resource type="AudioStream" uid="uid://bgj1al0jc6afc" path="res://Sound/Music/Tiburtina - Schwartzy.mp3" id="15_npdhm"]
@@ -514,6 +515,9 @@ offset_bottom = -181.0
 theme_override_font_sizes/font_size = 27
 text = "00"
 
+[node name="WalkingTimer" type="Timer" parent="."]
+wait_time = 0.4
+
 [node name="DebugCheck" type="Timer" parent="."]
 autostart = true
 
@@ -533,6 +537,10 @@ collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndingDetect"]
 shape = SubResource("CircleShape2D_npdhm")
+
+[node name="WalkingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_13iwc")
+volume_db = 24.0
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_k8qpn")
@@ -560,6 +568,7 @@ autoplay = true
 [connection signal="pressed" from="Camera2D/ShopUI/CommonAttackSpeed" to="." method="_on_common_attack_speed_pressed"]
 [connection signal="pressed" from="Camera2D/ShopUI/RareAttackSpeed" to="." method="_on_rare_attack_speed_pressed"]
 [connection signal="pressed" from="Camera2D/ShopUI/ExtraordinaryAttackSpeed" to="." method="_on_extraordinary_attack_speed_pressed"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]
 [connection signal="timeout" from="DebugCheck" to="." method="_on_debug_check_timeout"]
 [connection signal="area_entered" from="HeartDetect" to="." method="_on_heart_detect_area_entered"]
 [connection signal="area_entered" from="EndingDetect" to="." method="_on_ending_detect_area_entered"]

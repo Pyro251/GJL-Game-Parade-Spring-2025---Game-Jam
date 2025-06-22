@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var pickup_coin_sound: AudioStreamPlayer = $PickupCoinSound
 @onready var pickup_heart_sound: AudioStreamPlayer = $PickupHeartSound
 @onready var hurt_sound: AudioStreamPlayer = $HurtSound
+@onready var walking_sound: AudioStreamPlayer = $WalkingSound
+@onready var walking_timer: Timer = $WalkingTimer
 
 #card onready vars
 @onready var common_health: TextureButton = $Camera2D/ShopUI/CommonHealth
@@ -27,6 +29,7 @@ extends CharacterBody2D
 
 var coins = 0
 var rng = RandomNumberGenerator.new()
+var walking = false
 
 func _ready() -> void:
 	Global.player = $"."
@@ -70,6 +73,14 @@ func _physics_process(delta):
 	
 	if Global.player_health <= 0:
 		die()
+	
+	if Input.is_action_pressed("down") or Input.is_action_pressed("up") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		walking = false
+	else:
+		walking = true
+	
+	if walking:
+		walking_timer.start()
 	
 	move_and_slide()
 
@@ -231,3 +242,9 @@ func _on_heart_detect_area_entered(area: Area2D) -> void:
 
 func _on_ending_detect_area_entered(area: Area2D) -> void:
 	get_tree().change_scene_to_file("res://Scenes/Menus/ending_screen.tscn")
+
+
+func _on_walking_timer_timeout() -> void:
+	walking_sound.play()
+	if walking:
+		walking_timer.start()
