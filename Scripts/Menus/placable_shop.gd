@@ -16,9 +16,10 @@ func _on_player_detect_area_entered(area: Area2D) -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shop") and able_to_open_shop:
 		shop_open = !shop_open
-		print("shop button pressed, shop_open =", shop_open)
+		print("shop button pressed, shop_open = ", shop_open)
 		Global.hide_shop = !shop_open
-		print("Global.hide_shop=",Global.hide_shop)
+		print("Global.hide_shop= ",Global.hide_shop)
+		Global.shop_dialogue_should_be_hid = Global.hide_shop
 
 func _on_player_detect_area_exited(area: Area2D) -> void:
 	#if area.is_in_group("Player"):

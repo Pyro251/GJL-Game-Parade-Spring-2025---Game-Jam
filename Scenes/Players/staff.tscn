@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://det8b61sy32ts"]
+[gd_scene load_steps=4 format=3 uid="uid://det8b61sy32ts"]
 
 [ext_resource type="Script" uid="uid://2irmpoljdpos" path="res://Scripts/Player/staff.gd" id="1_cro23"]
 [ext_resource type="Texture2D" uid="uid://cpvtfggm8bhcs" path="res://Assets/Player/Staff/Game Jam Staff Sprite.png" id="2_387oy"]
+[ext_resource type="AudioStream" uid="uid://cag3hd3uhnbjh" path="res://Sound/SFX/laserShoot.wav" id="3_387oy"]
 
 [node name="Staff" type="CharacterBody2D"]
 script = ExtResource("1_cro23")
@@ -16,5 +17,8 @@ position = Vector2(17, -2)
 [node name="AttackSpeed" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_387oy")
 
 [connection signal="timeout" from="AttackSpeed" to="." method="_on_attack_speed_timeout"]

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var shoot_sound: AudioStreamPlayer = $ShootSound
 @onready var firing_pos: Node2D = $FiringPos
 @onready var attack_speed_timer: Timer = $AttackSpeed
 
@@ -18,6 +19,7 @@ func _physics_process(delta: float) -> void:
 
 
 func fire():
+	shoot_sound.play()
 	var bullet = bullet_path.instantiate()
 	bullet.position = global_position
 	var mouse_position = get_global_mouse_position()

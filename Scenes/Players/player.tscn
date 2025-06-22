@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b67xmooa7eu6o"]
+[gd_scene load_steps=32 format=3 uid="uid://b67xmooa7eu6o"]
 
 [ext_resource type="Script" uid="uid://dc7eawnw7t7ad" path="res://Scripts/Player/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://det8b61sy32ts" path="res://Scenes/Players/staff.tscn" id="2_8qn36"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://biboee5ngytfd" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Common Fire Rate Card.png" id="12_fuwcu"]
 [ext_resource type="Texture2D" uid="uid://q60m8bro272j" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Rare Fire Rate Card.png" id="13_m3db5"]
 [ext_resource type="Texture2D" uid="uid://dnqcb5ocfrr5n" path="res://Assets/shop/Cards/AttackSpeed/Game Jam Extraordinary Fire Rate Card.png" id="14_k8qpn"]
+[ext_resource type="AudioStream" uid="uid://byr7iu8n5no32" path="res://Sound/SFX/pickupCoin.wav" id="15_fuwcu"]
+[ext_resource type="AudioStream" uid="uid://b42c8fhfbgnc4" path="res://Sound/SFX/hitHurt (1).wav" id="15_k8qpn"]
+[ext_resource type="AudioStream" uid="uid://bgj1al0jc6afc" path="res://Sound/Music/Tiburtina - Schwartzy.mp3" id="15_npdhm"]
+[ext_resource type="AudioStream" uid="uid://ikf244qf65pm" path="res://Sound/SFX/pickupCoin (1).wav" id="16_13iwc"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8qn36"]
 particle_flag_disable_z = true
@@ -54,6 +58,12 @@ bg_color = Color(0.733002, 2.75549e-06, 6.73831e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npdhm"]
 bg_color = Color(0.0805432, 0.712891, 0.07472, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vh4w"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npdhm"]
+radius = 24.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_v0iea")
@@ -208,6 +218,16 @@ scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 5 Health"
 
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/CommonHealth"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "4 Coins"
+
 [node name="RareHealth" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -187.0
 offset_top = 40.0
@@ -229,6 +249,16 @@ offset_bottom = 9.0
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 8 Health"
+
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/RareHealth"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "12 Coins"
 
 [node name="ExtraordinaryHealth" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -187.0
@@ -252,6 +282,16 @@ scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 12 Health"
 
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/ExtraordinaryHealth"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "20 Coins"
+
 [node name="CommonAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -57.0
 offset_top = -18.0
@@ -273,6 +313,16 @@ offset_bottom = 9.0
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 1 Attack"
+
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/CommonAttack"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "5 Coins"
 
 [node name="RareAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -55.0
@@ -296,6 +346,16 @@ scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 1.5 Attack"
 
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/RareAttack"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "10 Coins"
+
 [node name="ExtraordinaryAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -55.0
 offset_top = -17.0
@@ -318,6 +378,16 @@ scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 2 Attack"
 
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/ExtraordinaryAttack"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "18 Coins"
+
 [node name="CommonAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 109.0
 offset_top = 28.0
@@ -338,7 +408,17 @@ offset_right = 61.0
 offset_bottom = 12.3333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "+ 2g Attack Speed"
+text = "+ 2 Attack Speed"
+
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/CommonAttackSpeed"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "5 Coins"
 
 [node name="RareAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 110.0
@@ -362,6 +442,16 @@ scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 4 Attack Speed"
 
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/RareAttackSpeed"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "14 Coins"
+
 [node name="ExtraordinaryAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 109.0
 offset_top = 29.0
@@ -384,17 +474,27 @@ scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
 text = "+ 6 Attack Speed"
 
+[node name="Label2" type="Label" parent="Camera2D/ShopUI/ExtraordinaryAttackSpeed"]
+layout_mode = 0
+offset_left = -2.33334
+offset_top = 47.3333
+offset_right = 212.667
+offset_bottom = 108.333
+scale = Vector2(0.215, 0.215)
+theme_override_font_sizes/font_size = 44
+text = "22 Coins"
+
 [node name="Coins" type="Label" parent="Camera2D"]
 z_index = 16
-offset_left = -332.0
-offset_top = -125.0
-offset_right = -292.0
-offset_bottom = -102.0
+offset_left = 285.0
+offset_top = -193.0
+offset_right = 325.0
+offset_bottom = -170.0
 text = "0"
 
 [node name="GameJamCoinUiSprite" type="Sprite2D" parent="Camera2D"]
 z_index = 16
-position = Vector2(-358, -113)
+position = Vector2(346, -184)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_ppdxs")
 
@@ -420,6 +520,33 @@ autostart = true
 [node name="AttackSpeed" type="Timer" parent="."]
 one_shot = true
 
+[node name="HeartDetect" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeartDetect"]
+shape = SubResource("CircleShape2D_7vh4w")
+
+[node name="EndingDetect" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndingDetect"]
+shape = SubResource("CircleShape2D_npdhm")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_k8qpn")
+
+[node name="PickupHeartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_13iwc")
+
+[node name="PickupCoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_fuwcu")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_npdhm")
+autoplay = true
+
 [connection signal="area_entered" from="ShopAreaDetect" to="." method="_on_shop_area_detect_area_entered"]
 [connection signal="area_exited" from="ShopAreaDetect" to="." method="_on_shop_area_detect_area_exited"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
@@ -434,3 +561,5 @@ one_shot = true
 [connection signal="pressed" from="Camera2D/ShopUI/RareAttackSpeed" to="." method="_on_rare_attack_speed_pressed"]
 [connection signal="pressed" from="Camera2D/ShopUI/ExtraordinaryAttackSpeed" to="." method="_on_extraordinary_attack_speed_pressed"]
 [connection signal="timeout" from="DebugCheck" to="." method="_on_debug_check_timeout"]
+[connection signal="area_entered" from="HeartDetect" to="." method="_on_heart_detect_area_entered"]
+[connection signal="area_entered" from="EndingDetect" to="." method="_on_ending_detect_area_entered"]

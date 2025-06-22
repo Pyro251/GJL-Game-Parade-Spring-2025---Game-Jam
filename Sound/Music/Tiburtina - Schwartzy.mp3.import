@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgj1al0jc6afc"
+path="res://.godot/imported/Tiburtina - Schwartzy.mp3-c44834377db78b9ec908f81002fb92e4.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/Tiburtina - Schwartzy.mp3"
+dest_files=["res://.godot/imported/Tiburtina - Schwartzy.mp3-c44834377db78b9ec908f81002fb92e4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

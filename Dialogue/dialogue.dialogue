@@ -4,59 +4,11 @@ You: ???
 ???: You fell pretty hard down that hole.
 ???: Wait a second… It’s you!
 ???: Here! Take your staff back and get going.
+- Begin journey
+if !Global.starting_dialogue_done:
+	set Global.starting_dialogue_done = true
 
 => END
 
-~ usual_greeting
-Bugsy: [[Oh look! A new customer! Take a look at my glorious wares!|
-What a pleasent surprise! I thought that you would have died by now|
-You know you're gonna die, right? You might as well use up the rest of your money.]]
-- Ask about this place
-Bugsy: This place is a nightmare. 
-Bugsy:No matter what you do, where you go, it’s just monsters and despair. 
-Bugsy: I gave up trying to escape a long time ago.
-- Ask about Bugsy
-Bugsy: Me? I’m just a merchant trying to make some money in this darn place. 
-Bugsy: Occasionally, travelers come by and they buy a few things.
-Bugsy: However, most of the time I end up taking their belongings from their bodies.
-Bugsy: It’s not pretty but it’s a way to make a living.
-- Ask about "Him"
-Bugsy: Him? No one dares go see him. 
-Bugsy: Those who have tried to escape have been killed by his goons. 
-Bugsy: Anyone who tries to go through him...
-Bugsy: G e t s  E R A S E D.
-Bugsy: It’s not worth the risk.
-Bugsy: You’d be much better off staying here, collecting coins and buying items from me.
-
-=> END
-
-~ ending
-???: Hello.
-???: You did it.
-???: You killed the Dark Lord.
-???: You have done what I couldn’t.
-???: I am a spirit. I have forgotten my name and my past.
-???: All that I know was that he killed me.
-???: I heard the prophecy and knew that I would be avenged.
-???: But I was waiting for centuries.
-???: Until you came along.
-???: Thank you.
-???: On behalf of everyone who has died.
-???: Thank you.
-???: I will rest easy now.
-
-
-Bugsy: Beyond that door is your way out.
-Bugsy: I will not join you. I need to be there for the others who will fall. 
-Bugsy: Help them out by selling my things.
-Bugsy: Do not worry. I will be safe here.
-Bugsy: I will be happy here.
-Bugsy: I might start a community.
-Bugsy: But you. You have a family to get back to.
-Bugsy: Go. Go see them again.
-- Leave
-Bugsy: Bye, my friend.
-- Leave
-Bugsy: Bye, my friend.
 
 

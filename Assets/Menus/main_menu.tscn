@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://mxx6nnxs45b4"]
+[gd_scene load_steps=11 format=3 uid="uid://mxx6nnxs45b4"]
 
 [ext_resource type="Script" uid="uid://fy8t73b6iud2" path="res://Scripts/Menus/main_menu.gd" id="1_38aua"]
 [ext_resource type="Texture2D" uid="uid://bewh17e7pgn61" path="res://Assets/Menus/MainMenu/Game Jam Menu Background.png" id="2_3oot6"]
 [ext_resource type="Texture2D" uid="uid://bs5jn55febxw7" path="res://Assets/Menus/MainMenu/Game Jam Begin Button.png" id="3_jqt56"]
 [ext_resource type="Texture2D" uid="uid://dss5ybwoo3xuh" path="res://Assets/Menus/MainMenu/Game Jam Give Up Button.png" id="4_pktjm"]
 [ext_resource type="Texture2D" uid="uid://ccbm5wxulherd" path="res://Assets/Menus/MainMenu/Game Jam Credits Button.png" id="5_decqg"]
+[ext_resource type="AudioStream" uid="uid://dmxxepa6kjige" path="res://Sound/Music/Sizzr - Schwartzy.mp3" id="6_jqt56"]
+[ext_resource type="AudioStream" uid="uid://cvgt8o0d24hd" path="res://Sound/SFX/blipSelect.wav" id="7_pktjm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kstv3"]
 atlas = ExtResource("2_3oot6")
@@ -84,5 +86,13 @@ texture_hover = ExtResource("5_decqg")
 texture_disabled = ExtResource("5_decqg")
 texture_focused = ExtResource("5_decqg")
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jqt56")
+autoplay = true
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pktjm")
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

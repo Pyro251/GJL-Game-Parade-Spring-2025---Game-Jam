@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckj206abiknsr"]
+
+[ext_resource type="Script" uid="uid://ctqfwlj07le7c" path="res://Scripts/Menus/credits_for_main_menu.gd" id="1_x4uu1"]
+
+[node name="CreditsForMainMenu" type="Node2D"]
+script = ExtResource("1_x4uu1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1963.0
+offset_bottom = 1123.0
+color = Color(0.580121, 0.467528, 0.447785, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 692.0
+offset_top = 277.0
+offset_right = 1271.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 56
+text = "Art: Keegan Crawford"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 689.0
+offset_top = 357.0
+offset_right = 1290.0
+offset_bottom = 434.0
+theme_override_font_sizes/font_size = 56
+text = "Code: Caiden Richards"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 813.0
+offset_top = 459.0
+offset_right = 1128.0
+offset_bottom = 564.0
+theme_override_font_sizes/font_size = 71
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

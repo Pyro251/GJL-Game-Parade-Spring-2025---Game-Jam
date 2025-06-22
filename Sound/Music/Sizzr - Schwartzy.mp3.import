@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmxxepa6kjige"
+path="res://.godot/imported/Sizzr - Schwartzy.mp3-7c721052c5ea37a9c6874adc469a285a.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/Sizzr - Schwartzy.mp3"
+dest_files=["res://.godot/imported/Sizzr - Schwartzy.mp3-7c721052c5ea37a9c6874adc469a285a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

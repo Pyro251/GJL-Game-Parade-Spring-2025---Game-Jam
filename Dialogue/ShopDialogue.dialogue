@@ -1,0 +1,49 @@
+~ usual_greeting
+Bugsy: [[Oh look! A new customer! Take a look at my glorious wares!|What a pleasent surprise! I thought that you would have died by now|You know you're gonna die, right? You might as well use up the rest of your money.]]
+- Ask about this place
+	Bugsy: This place is a nightmare. 
+	Bugsy: No matter what you do, where you go, it’s just monsters and despair. 
+	Bugsy: I gave up trying to escape a long time ago.
+	=> post_greeting
+- Ask about Bugsy
+	Bugsy: Me? I’m just a merchant trying to make some money in this darn place. 
+	Bugsy: Occasionally, travelers come by and they buy a few things.
+	Bugsy: However, most of the time I end up taking their belongings from their bodies.
+	Bugsy: It’s not pretty but it’s a way to make a living.
+	=> post_greeting
+- Ask about "Him"
+	Bugsy: Him? No one dares go see him. 
+	Bugsy: Those who have tried to escape have been killed by his goons. 
+	Bugsy: Anyone who tries to go through him...
+	Bugsy: G e t s  E R A S E D.
+	Bugsy: It’s not worth the risk.
+	Bugsy: You’d be much better off staying here, collecting coins and buying items from me.
+	=> post_greeting
+- Shop for items
+	=> END
+
+=> END
+
+~ post_greeting
+Bugsy: Anything else?
+- Ask about this place
+	Bugsy: This place is a nightmare. 
+	Bugsy: No matter what you do, where you go, it’s just monsters and despair. 
+	Bugsy: I gave up trying to escape a long time ago.
+	=> post_greeting
+- Ask about Bugsy
+	Bugsy: Me? I’m just a merchant trying to make some money in this darn place. 
+	Bugsy: Occasionally, travelers come by and they buy a few things.
+	Bugsy: However, most of the time I end up taking their belongings from their bodies.
+	Bugsy: It’s not pretty but it’s a way to make a living.
+	=> post_greeting
+- Ask about "Him"
+	Bugsy: Him? No one dares go see him. 
+	Bugsy: Those who have tried to escape have been killed by his goons. 
+	Bugsy: Anyone who tries to go through him...
+	Bugsy: G e t s  E R A S E D.
+	Bugsy: It’s not worth the risk.
+	Bugsy: You’d be much better off staying here, collecting coins and buying items from me.
+	=> post_greeting
+- Shop for items
+	=> END

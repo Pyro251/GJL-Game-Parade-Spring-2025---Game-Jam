@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://7fcauigapnmq"]
+
+[ext_resource type="Texture2D" uid="uid://fmaqu00vehoh" path="res://Assets/Items/Heart/pixil-frame-0 (1).png" id="1_7t3ee"]
+[ext_resource type="Script" uid="uid://c2vop0ghlv4h2" path="res://Scripts/Items/Health/health.gd" id="1_iuoca"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iuoca"]
+radius = 18.0278
+
+[node name="Health" type="Area2D"]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_iuoca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iuoca")
+
+[node name="Pixil-frame-0(1)" type="Sprite2D" parent="."]
+texture = ExtResource("1_7t3ee")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -8,6 +8,9 @@ extends CharacterBody2D
 @onready var attack_speed_bar: ProgressBar = $Camera2D/AttackSpeedBar
 @onready var press_space_to_open_shop_label: Label = $Camera2D/PressSpaceToOpenShop
 @onready var level_number_label: Label = $Camera2D/LevelNumber
+@onready var pickup_coin_sound: AudioStreamPlayer = $PickupCoinSound
+@onready var pickup_heart_sound: AudioStreamPlayer = $PickupHeartSound
+@onready var hurt_sound: AudioStreamPlayer = $HurtSound
 
 #card onready vars
 @onready var common_health: TextureButton = $Camera2D/ShopUI/CommonHealth
@@ -28,6 +31,7 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	Global.player = $"."
 	press_space_to_open_shop_label.hide()
+	pick_shop_items()
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -44,14 +48,17 @@ func _physics_process(delta):
 	coins_label.text = str(coins)
 	level_number_label.text = str(Global.level)
 	
-	if Global.hide_shop == true:
+	if Global.hide_shop:
 		shop_ui.hide()
-	if Global.hide_shop == false:
+	if !Global.hide_shop:
 		shop_ui.show()
 	
 	if Input.is_action_just_pressed("shop"):
-		if Global.hide_shop == false:
+		if !Global.hide_shop:
 			pick_shop_items()
+			
+		if Global.hide_shop:
+			DialogueManager.show_dialogue_balloon(load("res://Dialogue/ShopDialogue.dialogue"))
 	
 	attack_speed_timer.wait_time = Global.attack_speed
 	attack_speed_bar.max_value = Global.attack_speed
@@ -68,21 +75,28 @@ func _physics_process(delta):
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Easy Enemy 1"):
+		hurt_sound.play()
 		Global.player_health -= 2
 	if area.is_in_group("Easy Enemy 2"):
+		hurt_sound.play()
 		Global.player_health -= 2
 	if area.is_in_group("Medium Enemy 1"):
+		hurt_sound.play()
 		Global.player_health -= 3
 	if area.is_in_group("Medium Enemy 2"):
+		hurt_sound.play()
 		Global.player_health -= 4
 	if area.is_in_group("Hard Enemy 1"):
+		hurt_sound.play()
 		Global.player_health -= 6
 	if area.is_in_group("Hard Enemy 2"):
+		hurt_sound.play()
 		Global.player_health -= 8
 
 
 func _on_coin_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coin"):
+		pickup_coin_sound.play()
 		coins += 1
 		print("you have ", coins, " coins")
 
@@ -204,3 +218,16 @@ func _on_shop_area_detect_area_entered(area: Area2D) -> void:
 
 func _on_shop_area_detect_area_exited(area: Area2D) -> void:
 	press_space_to_open_shop_label.hide()
+
+
+func _on_heart_detect_area_entered(area: Area2D) -> void:
+	if Global.player_health <= Global.max_player_health - 5:
+		pickup_heart_sound.play()
+		Global.player_health += 5
+	if Global.player_health > Global.max_player_health -5:
+		pickup_heart_sound.play()
+		Global.player_health = Global.max_player_health
+
+
+func _on_ending_detect_area_entered(area: Area2D) -> void:
+	get_tree().change_scene_to_file("res://Scenes/Menus/ending_screen.tscn")
