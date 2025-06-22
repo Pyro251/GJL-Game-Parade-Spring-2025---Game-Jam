@@ -552,9 +552,6 @@ rotation = -0.00255597
 [node name="EasyEnemy1" parent="." instance=ExtResource("5_adcqc")]
 position = Vector2(892, -216)
 
-[node name="EasyEnemy2" parent="." instance=ExtResource("5_adcqc")]
-position = Vector2(888, 64)
-
 [node name="EasyEnemy3" parent="." instance=ExtResource("5_adcqc")]
 position = Vector2(1234, 347)
 
@@ -566,9 +563,6 @@ position = Vector2(612, -200)
 
 [node name="EasyEnemy6" parent="." instance=ExtResource("6_adcqc")]
 position = Vector2(1076, -58)
-
-[node name="EasyEnemy7" parent="." instance=ExtResource("6_adcqc")]
-position = Vector2(718, -32)
 
 [node name="EasyEnemy8" parent="." instance=ExtResource("6_adcqc")]
 position = Vector2(973, 323)

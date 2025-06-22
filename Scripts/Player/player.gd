@@ -82,6 +82,9 @@ func _physics_process(delta):
 	if walking:
 		walking_timer.start()
 	
+	if Global.attack_speed < 0:
+		Global.attack_speed = 0
+	
 	move_and_slide()
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
@@ -167,20 +170,20 @@ func pick_shop_items():
 
 func _on_common_health_pressed() -> void:
 	if coins >= 4:
-		Global.max_player_health += 5
+		Global.max_payerl_health += 5
 		coins -= 4
 		#Global.hide_shop = true
 
 func _on_rare_health_pressed() -> void:
-	if coins >= 12:
+	if coins >= 6:
 		Global.max_player_health += 8
-		coins -= 12
+		coins -= 6
 		#Global.hide_shop = true
 
 func _on_extraordinary_health_pressed() -> void:
-	if coins >= 20:
+	if coins >= 9:
 		Global.max_player_health += 12
-		coins -= 20
+		coins -= 9
 		#Global.hide_shop = true
 
 func _on_common_attack_pressed() -> void:
@@ -190,33 +193,33 @@ func _on_common_attack_pressed() -> void:
 		#Global.hide_shop = true
 
 func _on_rare_attack_pressed() -> void:
-	if coins >= 10:
+	if coins >= 7:
 		Global.orb_damage += 1.5
-		coins -= 10
+		coins -= 7
 		#Global.hide_shop = true
 
 func _on_extraordinary_attack_pressed() -> void:
-	if coins >= 18:
-		Global.orb_damage += 2
-		coins -= 18
+	if coins >= 9:
+		Global.orb_damage += 2.5
+		coins -= 9
 		#Global.hide_shop = true
 
 func _on_common_attack_speed_pressed() -> void:
 	if coins >= 5:
-		Global.attack_speed -= 0.05
+		Global.attack_speed -= 0.2
 		coins -= 5
 		#Global.hide_shop = true
 
 func _on_rare_attack_speed_pressed() -> void:
-	if coins >= 14:
-		Global.attack_speed -= 0.1
-		coins -= 14
+	if coins >= 6:
+		Global.attack_speed -= 0.25
+		coins -= 6
 		#Global.hide_shop = true
 
 func _on_extraordinary_attack_speed_pressed() -> void:
-	if coins >= 22:
-		Global.attack_speed -= 0.2
-		coins -= 22
+	if coins >= 7:
+		Global.attack_speed -= 0.3
+		coins -= 7
 		#Global.hide_shop = true
 
 func die():

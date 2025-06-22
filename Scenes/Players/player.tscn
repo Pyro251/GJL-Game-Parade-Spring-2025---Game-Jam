@@ -259,7 +259,7 @@ offset_right = 212.667
 offset_bottom = 108.333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "12 Coins"
+text = "6 Coins"
 
 [node name="ExtraordinaryHealth" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -187.0
@@ -291,7 +291,7 @@ offset_right = 212.667
 offset_bottom = 108.333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "20 Coins"
+text = "9 Coins"
 
 [node name="CommonAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -57.0
@@ -355,7 +355,7 @@ offset_right = 212.667
 offset_bottom = 108.333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "10 Coins"
+text = "7 Coins"
 
 [node name="ExtraordinaryAttack" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = -55.0
@@ -377,7 +377,7 @@ offset_right = 38.6667
 offset_bottom = 9.0
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "+ 2 Attack"
+text = "+ 2.5 Attack"
 
 [node name="Label2" type="Label" parent="Camera2D/ShopUI/ExtraordinaryAttack"]
 layout_mode = 0
@@ -387,7 +387,7 @@ offset_right = 212.667
 offset_bottom = 108.333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "18 Coins"
+text = "9 Coins"
 
 [node name="CommonAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 109.0
@@ -409,7 +409,7 @@ offset_right = 61.0
 offset_bottom = 12.3333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "+ 2 Attack Speed"
+text = "- 0.2 Orb Cooldown"
 
 [node name="Label2" type="Label" parent="Camera2D/ShopUI/CommonAttackSpeed"]
 layout_mode = 0
@@ -441,7 +441,7 @@ offset_right = 61.0
 offset_bottom = 12.3333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "+ 4 Attack Speed"
+text = "- 0.25 Orb Cooldown"
 
 [node name="Label2" type="Label" parent="Camera2D/ShopUI/RareAttackSpeed"]
 layout_mode = 0
@@ -451,7 +451,7 @@ offset_right = 212.667
 offset_bottom = 108.333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "14 Coins"
+text = "6 Coins"
 
 [node name="ExtraordinaryAttackSpeed" type="TextureButton" parent="Camera2D/ShopUI"]
 offset_left = 109.0
@@ -473,7 +473,7 @@ offset_right = 61.0
 offset_bottom = 12.3333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "+ 6 Attack Speed"
+text = "- 0.3 Orb Cooldown"
 
 [node name="Label2" type="Label" parent="Camera2D/ShopUI/ExtraordinaryAttackSpeed"]
 layout_mode = 0
@@ -483,7 +483,7 @@ offset_right = 212.667
 offset_bottom = 108.333
 scale = Vector2(0.215, 0.215)
 theme_override_font_sizes/font_size = 44
-text = "22 Coins"
+text = "7 Coins"
 
 [node name="Coins" type="Label" parent="Camera2D"]
 z_index = 16
