@@ -16,7 +16,7 @@ offset_top = 277.0
 offset_right = 1271.0
 offset_bottom = 354.0
 theme_override_font_sizes/font_size = 56
-text = "Art: Keegan Crawford"
+text = "Art: Keegaleeg"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 689.0

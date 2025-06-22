@@ -547,6 +547,7 @@ tile_set = SubResource("TileSet_y0d6x")
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_a02cp")]
+position = Vector2(-4359, 755)
 rotation = -0.00255597
 
 [node name="EasyEnemy1" parent="." instance=ExtResource("5_adcqc")]
